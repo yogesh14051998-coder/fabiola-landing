@@ -9,15 +9,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a2744;
-      --navy-deep: #111b35;
-      --gold: #b8975a;
-      --gold-light: #d4b47a;
-      --gold-pale: #f5edd8;
+      --navy: #2c2416;
+      --navy-deep: #1a1508;
+      --gold: #c9a84c;
+      --gold-light: #dfc075;
+      --gold-pale: #fdf6e3;
+      --gold-mid: #f0d99a;
       --white: #ffffff;
-      --off-white: #faf8f4;
-      --text-dark: #1a1a1a;
-      --text-mid: #444;
+      --off-white: #fdf9f2;
+      --cream: #f7f0e0;
+      --text-dark: #1a1508;
+      --text-mid: #5a4e38;
     }
 
     html { scroll-behavior: smooth; }
@@ -32,7 +34,7 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(26, 39, 68, 0.97);
+      background: rgba(26, 21, 8, 0.97);
       backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5%;
@@ -87,7 +89,7 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #1e3060 100%);
+      background: linear-gradient(160deg, #1a1508 0%, #2c2416 50%, #3d3120 100%);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center;
@@ -366,14 +368,14 @@
 
     /* ── AREAS ── */
     .areas-section {
-      background: var(--navy);
+      background: var(--cream);
       text-align: center;
     }
 
-    .areas-section .section-title { color: var(--white); }
+    .areas-section .section-title { color: var(--navy-deep); }
 
     .areas-section .section-body {
-      color: rgba(255,255,255,0.55);
+      color: var(--text-mid);
       margin: 0 auto 60px;
     }
 
@@ -381,19 +383,19 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1px;
-      background: rgba(184,151,90,0.15);
+      background: rgba(201,168,76,0.2);
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .area-card {
-      background: var(--navy);
+      background: var(--white);
       padding: 36px 28px;
       text-align: center;
       transition: background 0.2s;
       cursor: default;
     }
-    .area-card:hover { background: rgba(184,151,90,0.08); }
+    .area-card:hover { background: var(--gold-pale); }
 
     .area-card-icon {
       font-size: 1.4rem;
@@ -404,7 +406,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--navy-deep);
       margin-bottom: 6px;
     }
 
@@ -496,7 +498,7 @@
     }
 
     .btn-navy {
-      background: var(--navy);
+      background: var(--navy-deep);
       color: var(--gold);
       border: none;
       padding: 14px 28px;
@@ -531,7 +533,7 @@
 
     /* ── CONTACT ── */
     .contact-section {
-      background: var(--navy-deep);
+      background: linear-gradient(160deg, #1a1508 0%, #2c2416 100%);
       padding: 100px 5%;
     }
 
@@ -691,7 +693,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy-deep);
+      background: #1a1508;
       padding: 40px 5%;
       display: flex;
       align-items: center;
@@ -747,7 +749,7 @@
     <img src="logo.jpeg" alt="Team Luxury by Fab" style="width:42px;height:42px;object-fit:cover;border-radius:4px;" />
     <div class="nav-brand">
       Team Luxury by Fab
-      <span>Luxury Real Estate · South Florida</span>
+      <span>Keller Williams Luxury · South Florida</span>
     </div>
   </a>
   <a href="#contact" class="nav-cta">Private Consultation</a>
@@ -755,7 +757,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero" id="home">
-  <p class="hero-eyebrow">Fabiola Acevedo P.A.</p>
+  <p class="hero-eyebrow">Fabiola Acevedo P.A. &nbsp;·&nbsp; Keller Williams Luxury</p>
   <h1>Luxury Real Estate<br><em>South Florida</em></h1>
   <p class="hero-title-sub">Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida</p>
   <div class="gold-divider"></div>
@@ -782,7 +784,7 @@
     <div class="about-content">
       <p class="section-tag">Meet Fabiola</p>
       <h2 class="section-title">A Trusted Advisor in <em>Luxury</em></h2>
-      <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market while leading purpose-driven initiatives focused on leadership, empowerment, and personal transformation.</p>
+      <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. As a proud member of <strong>Keller Williams Luxury</strong>, she brings unmatched market expertise and a global network to every client. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market while leading purpose-driven initiatives focused on leadership, empowerment, and personal transformation.</p>
       <br>
       <p class="section-body">Throughout her career, Fabiola has been recognized for her commitment to integrity, diversity, and conscious leadership. Her work blends business excellence with a strong focus on human development — helping individuals and communities thrive through vision, resilience, and purpose.</p>
       <div class="about-stats">
@@ -1015,7 +1017,7 @@
     <div class="footer-brand">Team Luxury by Fab</div>
   </div>
   <div class="footer-copy">
-    &copy; 2025 Fabiola Acevedo P.A. &nbsp;|&nbsp; Luxury Real Estate Advisor<br>
+    &copy; 2025 Fabiola Acevedo P.A. &nbsp;|&nbsp; Keller Williams Luxury<br>
     Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida
   </div>
 </footer>
