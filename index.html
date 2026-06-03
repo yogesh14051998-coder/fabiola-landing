@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabiola Acevedo P.A. | Luxury Real Estate | South Florida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-deep: #111b35;
+      --gold: #b8975a;
+      --gold-light: #d4b47a;
+      --gold-pale: #f5edd8;
+      --white: #ffffff;
+      --off-white: #faf8f4;
+      --text-dark: #1a1a1a;
+      --text-mid: #444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26, 39, 68, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      border-bottom: 1px solid rgba(184,151,90,0.3);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo svg {
+      width: 38px; height: 38px;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    .nav-brand span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      color: rgba(212,180,122,0.7);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 10px 22px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #1e3060 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(184,151,90,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(184,151,90,0.06) 0%, transparent 70%);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '——';
+      margin: 0 10px;
+      opacity: 0.5;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-title-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .gold-divider {
+      width: 60px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 36px;
+      position: relative;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      max-width: 680px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      justify-content: center;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 16px 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(184,151,90,0.5);
+      padding: 15px 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      border: none;
+      padding: 16px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+    .scroll-hint {
+      position: absolute; bottom: 30px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(184,151,90,0.5), transparent);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-body {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 620px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: -20px;
+      right: 20px; bottom: 20px;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      filter: sepia(5%);
+    }
+
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--navy) 0%, #2a4080 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px;
+      position: relative; z-index: 1;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .about-img-placeholder svg {
+      width: 60px; height: 60px;
+      opacity: 0.2;
+    }
+
+    .about-content { padding-right: 20px; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(184,151,90,0.2);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    /* ── AREAS ── */
+    .areas-section {
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .areas-section .section-title { color: var(--white); }
+
+    .areas-section .section-body {
+      color: rgba(255,255,255,0.55);
+      margin: 0 auto 60px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: rgba(184,151,90,0.15);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .area-card {
+      background: var(--navy);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .area-card:hover { background: rgba(184,151,90,0.08); }
+
+    .area-card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .area-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .area-card-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ── SERVICES ── */
+    .services-section {
+      background: var(--off-white);
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .service-item {
+      background: var(--white);
+      padding: 28px 24px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .service-item:hover { border-left-color: var(--gold); }
+
+    .service-item-icon {
+      width: 36px; height: 36px;
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1rem;
+    }
+
+    .service-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .service-item-desc {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--gold);
+      padding: 60px 5%;
+      text-align: center;
+    }
+
+    .cta-strip h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .cta-strip p {
+      font-size: 0.85rem;
+      color: rgba(26,39,68,0.7);
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .cta-strip-btns {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 12px;
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--gold);
+      border: none;
+      padding: 14px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-navy:hover { background: var(--navy-deep); transform: translateY(-2px); }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--navy);
+      border: none;
+      padding: 14px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--navy-deep);
+      padding: 100px 5%;
+    }
+
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-section .section-title { color: var(--white); }
+    .contact-section .section-body { color: rgba(255,255,255,0.5); }
+
+    .contact-details { margin-top: 40px; }
+
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(184,151,90,0.12);
+    }
+    .contact-row:last-child { border-bottom: none; }
+
+    .contact-row-icon {
+      width: 40px; height: 40px;
+      background: rgba(184,151,90,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .contact-row-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .contact-row-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,151,90,0.15);
+      padding: 40px;
+    }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .form-sub {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(184,151,90,0.2);
+      color: var(--white);
+      padding: 12px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .form-group select option { background: var(--navy-deep); }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── CLOSING ── */
+    .closing-section {
+      background: var(--white);
+      text-align: center;
+      padding: 120px 5%;
+    }
+
+    .closing-section .gold-divider { margin-bottom: 40px; }
+
+    .closing-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      max-width: 760px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .closing-sub {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 40px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .footer-logo svg { width: 32px; height: 32px; }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      font-size: 0.95rem;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      text-align: right;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about { grid-template-columns: 1fr; gap: 50px; padding: 80px 5%; }
+      .about-img-wrap { max-width: 400px; }
+      .about-content { padding-right: 0; }
+      .services-inner { grid-template-columns: 1fr; gap: 50px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 4%; }
+      .nav-cta { display: none; }
+      .services-list { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .contact-form { padding: 28px 20px; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-copy { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- Logo SVG: house + heart icon -->
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="8,32 30,12 52,32" stroke="#b8975a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="8,32 8,52 30,52" stroke="#b8975a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="22" y="40" width="12" height="12" stroke="#b8975a" stroke-width="3" fill="none"/>
+      <path d="M37 23 C37 20, 40 17, 44 19 C48 17, 51 20, 51 23 C51 27, 44 33, 44 33 C44 33, 37 27, 37 23Z" stroke="#b8975a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="nav-brand">
+      Team Luxury by Fab
+      <span>Luxury Real Estate · South Florida</span>
+    </div>
+  </a>
+  <a href="#contact" class="nav-cta">Private Consultation</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <p class="hero-eyebrow">Fabiola Acevedo P.A.</p>
+  <h1>Luxury Real Estate<br><em>South Florida</em></h1>
+  <p class="hero-title-sub">Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida</p>
+  <div class="gold-divider"></div>
+  <p class="hero-headline">Looking to Buy, Sell, or Invest in<br>South Florida Luxury Real Estate?</p>
+  <p>With more than 25 years of experience and an unwavering commitment to elegance and discretion, I guide clients through the most exclusive residential markets in South Florida.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Schedule a Private Consultation</a>
+    <a href="#contact?intent=buy" class="btn-outline">I Want to Buy</a>
+    <a href="#contact?intent=sell" class="btn-outline">I Want to Sell</a>
+    <a href="https://wa.me/1XXXXXXXXXX" target="_blank" class="btn-whatsapp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+  <div class="scroll-hint">Discover More</div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section style="background: var(--white); padding: 100px 5%;" id="about">
+  <div class="about">
+    <div class="about-img-wrap">
+      <!-- Replace src with actual photo path if available -->
+      <div class="about-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Photo of Fabiola</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <p class="section-tag">Meet Fabiola</p>
+      <h2 class="section-title">A Trusted Advisor in <em>Luxury</em></h2>
+      <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market while leading purpose-driven initiatives focused on leadership, empowerment, and personal transformation.</p>
+      <br>
+      <p class="section-body">Throughout her career, Fabiola has been recognized for her commitment to integrity, diversity, and conscious leadership. Her work blends business excellence with a strong focus on human development — helping individuals and communities thrive through vision, resilience, and purpose.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">P.A.</div>
+          <div class="stat-label">Licensed Professional</div>
+        </div>
+        <div>
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Luxury Markets</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Discretion &amp; Integrity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AREAS ── -->
+<section class="areas-section" id="areas">
+  <p class="section-tag" style="color:var(--gold);">Areas of Focus</p>
+  <h2 class="section-title">Exclusive <em style="color:var(--gold-light);">Markets</em> We Serve</h2>
+  <p class="section-body" style="margin:0 auto 60px;">From Palm Beach Island to the vibrant streets of Miami, I bring unmatched local expertise to every luxury market in South Florida.</p>
+
+  <div class="areas-grid">
+    <div class="area-card">
+      <div class="area-card-icon">🏝</div>
+      <div class="area-card-name">Palm Beach Island</div>
+      <div class="area-card-sub">Ultra-Luxury Estates</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🌴</div>
+      <div class="area-card-name">West Palm Beach</div>
+      <div class="area-card-sub">Waterfront Living</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🌆</div>
+      <div class="area-card-name">Miami</div>
+      <div class="area-card-sub">World-Class City Living</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">⚓</div>
+      <div class="area-card-name">Fort Lauderdale</div>
+      <div class="area-card-sub">Yachting Capital</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🌸</div>
+      <div class="area-card-name">Boca Raton</div>
+      <div class="area-card-sub">Prestigious Communities</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🌊</div>
+      <div class="area-card-name">Delray Beach</div>
+      <div class="area-card-sub">Coastal Elegance</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🐠</div>
+      <div class="area-card-name">Jupiter</div>
+      <div class="area-card-sub">Exclusive North County</div>
+    </div>
+    <div class="area-card">
+      <div class="area-card-icon">🏗</div>
+      <div class="area-card-name">Pre-Construction</div>
+      <div class="area-card-sub">Exclusive Opportunities</div>
+    </div>
+    <div class="area-card" style="grid-column: span 1;">
+      <div class="area-card-icon">💎</div>
+      <div class="area-card-name">South Florida Luxury</div>
+      <div class="area-card-sub">Waterfront &amp; Estate Markets</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div>
+      <p class="section-tag">How I Can Help</p>
+      <h2 class="section-title">Your Real Estate <em>Journey</em> Starts Here</h2>
+      <p class="section-body">Whether you are relocating, investing, or searching for your forever home, I offer a white-glove experience tailored to your unique vision and lifestyle.</p>
+      <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="#contact?intent=buy" class="btn-primary">I Want to Buy</a>
+        <a href="#contact?intent=sell" class="btn-outline" style="color:var(--navy);border-color:rgba(26,39,68,0.3);">I Want to Sell</a>
+      </div>
+    </div>
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-item-icon">🏡</div>
+        <div class="service-item-title">Buy a Luxury Home</div>
+        <div class="service-item-desc">Access exclusive listings and off-market properties across South Florida's finest communities.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-icon">📋</div>
+        <div class="service-item-title">Sell Your Property</div>
+        <div class="service-item-desc">Strategic pricing, elite marketing, and a global network to maximize your sale value.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-icon">🏗</div>
+        <div class="service-item-title">Pre-Construction</div>
+        <div class="service-item-desc">First access to South Florida's most sought-after new developments and investment opportunities.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-icon">✈️</div>
+        <div class="service-item-title">Relocate to South Florida</div>
+        <div class="service-item-desc">A seamless transition into the South Florida lifestyle with concierge-level guidance.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-icon">📈</div>
+        <div class="service-item-title">Invest in Real Estate</div>
+        <div class="service-item-desc">Data-driven investment strategy in high-end markets with long-term value creation.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-icon">🤝</div>
+        <div class="service-item-title">Private Consultation</div>
+        <div class="service-item-desc">A confidential, one-on-one conversation about your real estate goals and opportunities.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <h2>Interested in Pre-Construction Opportunities?</h2>
+  <p>Be the first to know about exclusive new developments across Palm Beach, Miami, and South Florida.</p>
+  <div class="cta-strip-btns">
+    <a href="#contact?intent=preconstruction" class="btn-navy">Send Me Pre-Construction Opportunities</a>
+    <a href="#contact?area=palmbeach" class="btn-white">Explore Palm Beach Luxury</a>
+    <a href="#contact?area=miami" class="btn-white">Explore Miami Luxury</a>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="section-tag">Work With Fabiola</p>
+      <h2 class="section-title" style="color:var(--white);">Let's Begin Your <em>Journey</em></h2>
+      <p class="section-body">For private inquiries, consultations, and exclusive opportunities, I am here to assist you with the utmost discretion and professionalism.</p>
+
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-row-icon">📞</div>
+          <div>
+            <div class="contact-row-label">Phone</div>
+            <div class="contact-row-value">[Your Phone Number]</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">✉️</div>
+          <div>
+            <div class="contact-row-label">Email</div>
+            <div class="contact-row-value">[Your Email Address]</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">🌐</div>
+          <div>
+            <div class="contact-row-label">Website</div>
+            <div class="contact-row-value">[Your Website Link]</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon" style="background:#25D366;color:#fff;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div>
+            <div class="contact-row-label">WhatsApp</div>
+            <a href="https://wa.me/1XXXXXXXXXX" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:300;text-decoration:none;">Contact on WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Request a Private Consultation</div>
+      <div class="form-sub">All inquiries handled with complete discretion.</div>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+1 (000) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label>I'm Interested In</label>
+          <select>
+            <option value="">Select an option</option>
+            <option>Buying a Luxury Home</option>
+            <option>Selling My Property</option>
+            <option>Pre-Construction Opportunities</option>
+            <option>Relocating to South Florida</option>
+            <option>Real Estate Investment</option>
+            <option>General Consultation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea placeholder="Tell me about your goals or preferred market…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send My Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING ── -->
+<section class="closing-section">
+  <div class="gold-divider"></div>
+  <p class="closing-quote">"Your next home, investment, or legacy property deserves more than a transaction. It deserves strategy, elegance, market knowledge, and a trusted advisor who understands luxury, lifestyle, and long-term value."</p>
+  <p class="closing-sub">Begin your South Florida real estate journey with Fabiola Acevedo.</p>
+  <a href="#contact" class="btn-primary" style="font-size:0.8rem; padding:18px 40px;">Begin Your Journey</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="8,32 30,12 52,32" stroke="#b8975a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="8,32 8,52 30,52" stroke="#b8975a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="22" y="40" width="12" height="12" stroke="#b8975a" stroke-width="3" fill="none"/>
+      <path d="M37 23 C37 20, 40 17, 44 19 C48 17, 51 20, 51 23 C51 27, 44 33, 44 33 C44 33, 37 27, 37 23Z" stroke="#b8975a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="footer-brand">Team Luxury by Fab</div>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 Fabiola Acevedo P.A. &nbsp;|&nbsp; Luxury Real Estate Advisor<br>
+    Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#2ecc71';
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send My Inquiry';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }, 1200);
+  }
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').split('?')[0];
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
