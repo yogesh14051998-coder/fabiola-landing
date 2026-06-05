@@ -838,7 +838,7 @@
 
     /* ── CLOSING ── */
     .closing-section {
-      background: #f5e89a;
+      background: var(--white);
       text-align: center;
       padding: 120px 5%;
     }
@@ -865,13 +865,12 @@
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy-deep);
-      padding: 40px 5%;
+      background: var(--white);
+      padding: 36px 5%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      justify-content: center;
+      border-top: 1px solid rgba(180,140,50,0.2);
     }
 
     .footer-logo {
@@ -1176,11 +1175,7 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo">
-    <img src="logo.jpeg" alt="Team Luxury by Fab" style="width:36px;height:36px;object-fit:cover;border-radius:4px;" />
-    <div class="footer-brand">Team Luxury by Fab</div>
-  </div>
-  <div class="footer-copy">
+  <div style="text-align:center;font-size:0.78rem;font-weight:400;color:#111;letter-spacing:0.04em;line-height:1.8;">
     &copy; 2025 Fabiola Acevedo P.A. &nbsp;|&nbsp; Keller Williams Luxury<br>
     Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida
   </div>
