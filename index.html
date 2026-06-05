@@ -573,17 +573,45 @@
     }
     .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
 
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
     /* ── CONTACT ── */
     .contact-section {
       background: linear-gradient(160deg, #1a1508 0%, #2c2416 100%);
       padding: 100px 5%;
     }
 
+    .contact-heading {
+      max-width: 700px;
+      margin: 0 auto 70px;
+    }
+
     .contact-inner {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.2fr;
       gap: 60px;
       align-items: start;
     }
@@ -810,7 +838,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero" id="home">
-  <p class="hero-eyebrow">Fabiola Acevedo P.A. &nbsp;·&nbsp; Keller Williams Luxury</p>
+  <p class="hero-eyebrow reveal">Fabiola Acevedo P.A. &nbsp;·&nbsp; Keller Williams Luxury</p>
   <h1>Luxury Real Estate<br><em>South Florida</em></h1>
   <p class="hero-title-sub">Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida</p>
   <div class="gold-divider"></div>
@@ -831,10 +859,10 @@
 <!-- ── ABOUT ── -->
 <section style="background: var(--white); padding: 100px 5%;" id="about">
   <div class="about">
-    <div class="about-img-wrap">
+    <div class="about-img-wrap reveal-left">
       <img src="fabiola.jpeg" alt="Fabiola Acevedo P.A. — Luxury Real Estate Advisor" style="width:100%;display:block;object-fit:cover;object-position:center top;aspect-ratio:3/4;position:relative;z-index:1;filter:sepia(5%);" />
     </div>
-    <div class="about-content">
+    <div class="about-content reveal-right">
       <p class="section-tag">Meet Fabiola</p>
       <h2 class="section-title">A Trusted Advisor in <em>Luxury</em></h2>
       <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. As a proud member of <strong>Keller Williams Luxury</strong>, she brings unmatched market expertise and a global network to every client. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market while leading purpose-driven initiatives focused on leadership, empowerment, and personal transformation.</p>
@@ -868,7 +896,7 @@
   <h2 class="section-title">Exclusive <em style="color:var(--gold-light);">Markets</em> We Serve</h2>
   <p class="section-body" style="margin:0 auto 60px;">From Palm Beach Island to the vibrant streets of Miami, I bring unmatched local expertise to every luxury market in South Florida.</p>
 
-  <div class="areas-grid">
+  <div class="areas-grid reveal">
     <div class="area-card">
       <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=85&fit=crop" alt="Palm Beach Island" loading="lazy" />
       <div class="area-card-overlay">
@@ -912,14 +940,14 @@
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1527856263669-12c3a0af2aa6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Jupiter</div>
         <div class="area-card-sub">Exclusive North County</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85&fit=crop" alt="Pre-Construction" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=85&fit=crop" alt="Pre-Construction Miami" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Pre-Construction</div>
         <div class="area-card-sub">Exclusive Opportunities</div>
@@ -937,7 +965,7 @@
 
 <!-- ── SERVICES ── -->
 <section class="services-section" id="services">
-  <div class="services-inner">
+  <div class="services-inner reveal">
     <div>
       <p class="section-tag">How I Can Help</p>
       <h2 class="section-title">Your Real Estate <em>Journey</em> Starts Here</h2>
@@ -1007,12 +1035,13 @@
 
 <!-- ── CONTACT ── -->
 <section class="contact-section" id="contact">
+  <div class="contact-heading reveal">
+    <p class="section-tag" style="text-align:center;">Work With Fabiola</p>
+    <h2 class="section-title" style="color:var(--white);text-align:center;">Let's Begin Your <em>Journey</em></h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.5);margin:0 auto;text-align:center;">For private inquiries, consultations, and exclusive opportunities, I am here to assist you with the utmost discretion and professionalism.</p>
+  </div>
   <div class="contact-inner">
-    <div>
-      <p class="section-tag">Work With Fabiola</p>
-      <h2 class="section-title" style="color:var(--white);">Let's Begin Your <em>Journey</em></h2>
-      <p class="section-body">For private inquiries, consultations, and exclusive opportunities, I am here to assist you with the utmost discretion and professionalism.</p>
-
+    <div class="reveal-left">
       <!-- Elegant icon row -->
       <div class="social-icons">
         <a href="tel:+19545297337" class="social-icon-btn icon-phone" title="Call Fabiola">
@@ -1032,17 +1061,12 @@
         </a>
       </div>
 
-      <div class="contact-info-text">
-        <div class="contact-info-row"><a href="tel:+19545297337">+1 (954) 529-7337</a></div>
-        <div class="contact-info-row"><a href="mailto:fab33076@gmail.com">fab33076@gmail.com</a></div>
-      </div>
-
       <div class="contact-fab-wrap">
         <img src="images/fab-hires.jpeg" alt="Fabiola Acevedo P.A." class="contact-fab-img" />
       </div>
     </div>
 
-    <div class="contact-form">
+    <div class="contact-form reveal-right">
       <div class="form-title">Request a Private Consultation</div>
       <div class="form-sub">All inquiries handled with complete discretion. &nbsp;<span style="color:var(--gold);font-size:0.7rem;">* Required</span></div>
       <form id="inquiryForm" onsubmit="handleSubmit(event)">
@@ -1162,6 +1186,18 @@
       }
     });
   });
+
+  // Scroll reveal animation
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
