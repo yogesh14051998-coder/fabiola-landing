@@ -552,37 +552,46 @@
 
     .contact-details { margin-top: 40px; }
 
-    .contact-row {
-      display: flex; align-items: flex-start; gap: 16px;
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid rgba(184,151,90,0.12);
+    .social-icons {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-top: 36px;
     }
-    .contact-row:last-child { border-bottom: none; }
 
-    .contact-row-icon {
-      width: 40px; height: 40px;
-      background: rgba(184,151,90,0.1);
+    .social-icon-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
       flex-shrink: 0;
-      color: var(--gold);
-      font-size: 1rem;
+    }
+    .social-icon-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .social-icon-btn svg { width: 22px; height: 22px; }
+
+    .icon-phone   { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
+    .icon-email   { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
+    .icon-whatsapp { background: #25D366; border: 1px solid #25D366; color: #fff; }
+    .icon-instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border: none; color: #fff; }
+    .icon-web     { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
+
+    .contact-info-text {
+      margin-top: 32px;
+      display: flex; flex-direction: column; gap: 14px;
     }
 
-    .contact-row-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
+    .contact-info-row {
+      display: flex; align-items: center; gap: 12px;
     }
 
-    .contact-row-value {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
+    .contact-info-row a, .contact-info-row span {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
       font-weight: 300;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
     }
+    .contact-info-row a:hover { color: var(--gold); }
 
     .contact-form {
       background: rgba(255,255,255,0.04);
@@ -616,6 +625,8 @@
       color: var(--gold);
       margin-bottom: 6px;
     }
+
+    .form-group label .req { color: #e8c97a; margin-left: 2px; }
 
     .form-group input,
     .form-group select,
@@ -931,66 +942,51 @@
       <h2 class="section-title" style="color:var(--white);">Let's Begin Your <em>Journey</em></h2>
       <p class="section-body">For private inquiries, consultations, and exclusive opportunities, I am here to assist you with the utmost discretion and professionalism.</p>
 
-      <div class="contact-details">
-        <div class="contact-row">
-          <div class="contact-row-icon">📞</div>
-          <div>
-            <div class="contact-row-label">Phone</div>
-            <div class="contact-row-value">+1 (954) 529-7337</div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon">✉️</div>
-          <div>
-            <div class="contact-row-label">Email</div>
-            <div class="contact-row-value"><a href="mailto:fab33076@gmail.com" style="color:rgba(255,255,255,0.8);text-decoration:none;">fab33076@gmail.com</a></div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon">🌐</div>
-          <div>
-            <div class="contact-row-label">Website</div>
-            <div class="contact-row-value"><a href="https://fabiola-landing-omega.vercel.app" target="_blank" style="color:rgba(255,255,255,0.8);text-decoration:none;">fabiola-landing-omega.vercel.app</a></div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;font-size:1.1rem;">📸</div>
-          <div>
-            <div class="contact-row-label">Instagram</div>
-            <a href="https://instagram.com/beethelightllc" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:300;text-decoration:none;">@beethelightllc →</a>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon" style="background:#25D366;color:#fff;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </div>
-          <div>
-            <div class="contact-row-label">WhatsApp</div>
-            <a href="https://wa.me/19545297337" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:300;text-decoration:none;">+1 (954) 529-7337 →</a>
-          </div>
-        </div>
+      <!-- Elegant icon row -->
+      <div class="social-icons">
+        <a href="tel:+19545297337" class="social-icon-btn icon-phone" title="Call Fabiola">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
+        <a href="mailto:fab33076@gmail.com" class="social-icon-btn icon-email" title="Email Fabiola">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="https://wa.me/19545297337" target="_blank" class="social-icon-btn icon-whatsapp" title="WhatsApp Fabiola">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a href="https://instagram.com/beethelightllc" target="_blank" class="social-icon-btn icon-instagram" title="Instagram @beethelightllc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://fabiola-landing-omega.vercel.app" target="_blank" class="social-icon-btn icon-web" title="Visit Website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </a>
+      </div>
+
+      <div class="contact-info-text">
+        <div class="contact-info-row"><a href="tel:+19545297337">+1 (954) 529-7337</a></div>
+        <div class="contact-info-row"><a href="mailto:fab33076@gmail.com">fab33076@gmail.com</a></div>
+        <div class="contact-info-row"><a href="https://instagram.com/beethelightllc" target="_blank">@beethelightllc</a></div>
       </div>
     </div>
 
     <div class="contact-form">
       <div class="form-title">Request a Private Consultation</div>
-      <div class="form-sub">All inquiries handled with complete discretion.</div>
-      <form onsubmit="handleSubmit(event)">
+      <div class="form-sub">All inquiries handled with complete discretion. &nbsp;<span style="color:var(--gold);font-size:0.7rem;">* Required</span></div>
+      <form id="inquiryForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Your full name" required />
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="f_name" placeholder="Your full name" required />
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="your@email.com" required />
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="f_email" placeholder="your@email.com" required />
         </div>
         <div class="form-group">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" placeholder="+1 (000) 000-0000" />
+          <label>Phone / WhatsApp <span class="req">*</span></label>
+          <input type="tel" id="f_phone" placeholder="+1 (000) 000-0000" required />
         </div>
         <div class="form-group">
-          <label>I'm Interested In</label>
-          <select>
+          <label>I'm Interested In <span class="req">*</span></label>
+          <select id="f_interest" required>
             <option value="">Select an option</option>
             <option>Buying a Luxury Home</option>
             <option>Selling My Property</option>
@@ -1001,8 +997,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Message (Optional)</label>
-          <textarea placeholder="Tell me about your goals or preferred market…"></textarea>
+          <label>Message</label>
+          <textarea id="f_msg" placeholder="Tell me about your goals or preferred market…"></textarea>
         </div>
         <button type="submit" class="form-submit">Send My Inquiry</button>
       </form>
@@ -1034,18 +1030,51 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
+
+    const name     = document.getElementById('f_name').value.trim();
+    const email    = document.getElementById('f_email').value.trim();
+    const phone    = document.getElementById('f_phone').value.trim();
+    const interest = document.getElementById('f_interest').value;
+    const msg      = document.getElementById('f_msg').value.trim();
+
+    // Build email body
+    const emailSubject = encodeURIComponent('New Inquiry – ' + interest);
+    const emailBody = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Interest: ' + interest + '\n' +
+      (msg ? 'Message: ' + msg : '')
+    );
+
+    // Build WhatsApp message
+    const waMsg = encodeURIComponent(
+      '👋 Hello Fabiola,\n\n' +
+      'My name is ' + name + ' and I am interested in: ' + interest + '.\n\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone +
+      (msg ? '\n\nMessage: ' + msg : '') +
+      '\n\nLooking forward to connecting!'
+    );
+
     btn.textContent = 'Sending…';
     btn.disabled = true;
+
+    // Open email client
+    window.location.href = 'mailto:fab33076@gmail.com?subject=' + emailSubject + '&body=' + emailBody;
+
+    // Open WhatsApp after short delay
     setTimeout(() => {
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#2ecc71';
+      window.open('https://wa.me/19545297337?text=' + waMsg, '_blank');
+      btn.textContent = 'Inquiry Sent ✓';
+      btn.style.background = '#4caf50';
       e.target.reset();
       setTimeout(() => {
         btn.textContent = 'Send My Inquiry';
         btn.style.background = '';
         btn.disabled = false;
-      }, 3000);
-    }, 1200);
+      }, 4000);
+    }, 800);
   }
 
   // Smooth scroll for all anchor links
