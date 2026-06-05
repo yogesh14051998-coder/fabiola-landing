@@ -437,16 +437,26 @@
     }
 
     /* ── CONTACT FABIOLA PHOTO ── */
+    .contact-fab-wrap {
+      margin-top: 40px;
+      position: relative;
+      max-width: 300px;
+    }
+    .contact-fab-wrap::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px; right: 12px; bottom: 12px;
+      border: 1px solid rgba(232,201,122,0.25);
+      z-index: 0;
+    }
     .contact-fab-img {
       width: 100%;
-      max-width: 340px;
-      aspect-ratio: 3/4;
+      height: 380px;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 15%;
       display: block;
-      margin-top: 40px;
-      border: 1px solid rgba(232,201,122,0.2);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      position: relative; z-index: 1;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
     }
 
     /* ── SERVICES ── */
@@ -478,12 +488,13 @@
     .service-item:hover { border-left-color: var(--gold); }
 
     .service-item-icon {
-      width: 36px; height: 36px;
-      background: var(--gold-pale);
+      width: 44px; height: 44px;
+      border: 1px solid rgba(201,168,76,0.35);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 14px;
-      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--gold-dark);
     }
+    .service-item-icon svg { width: 20px; height: 20px; }
 
     .service-item-title {
       font-family: 'Cormorant Garamond', serif;
@@ -859,63 +870,63 @@
 
   <div class="areas-grid">
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop" alt="Palm Beach Island" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=85&fit=crop" alt="Palm Beach Island" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Palm Beach Island</div>
         <div class="area-card-sub">Ultra-Luxury Estates</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1569431059680-38e5e50c4f89?w=600&q=80&fit=crop" alt="West Palm Beach" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=85&fit=crop" alt="West Palm Beach" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">West Palm Beach</div>
         <div class="area-card-sub">Waterfront Living</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80&fit=crop" alt="Miami" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=800&q=85&fit=crop" alt="Miami" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Miami</div>
         <div class="area-card-sub">World-Class City Living</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80&fit=crop" alt="Fort Lauderdale" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85&fit=crop" alt="Fort Lauderdale" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Fort Lauderdale</div>
         <div class="area-card-sub">Yachting Capital</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?w=600&q=80&fit=crop" alt="Boca Raton" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=85&fit=crop" alt="Boca Raton" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Boca Raton</div>
         <div class="area-card-sub">Prestigious Communities</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&q=80&fit=crop" alt="Delray Beach" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=85&fit=crop" alt="Delray Beach" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Delray Beach</div>
         <div class="area-card-sub">Coastal Elegance</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1527856263669-12c3a0af2aa6?w=600&q=80&fit=crop" alt="Jupiter" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1527856263669-12c3a0af2aa6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Jupiter</div>
         <div class="area-card-sub">Exclusive North County</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&fit=crop" alt="Pre-Construction" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85&fit=crop" alt="Pre-Construction" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">Pre-Construction</div>
         <div class="area-card-sub">Exclusive Opportunities</div>
       </div>
     </div>
     <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&fit=crop" alt="South Florida Luxury" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=85&fit=crop" alt="South Florida Luxury" loading="lazy" />
       <div class="area-card-overlay">
         <div class="area-card-name">South Florida Luxury</div>
         <div class="area-card-sub">Waterfront &amp; Estate Markets</div>
@@ -938,32 +949,44 @@
     </div>
     <div class="services-list">
       <div class="service-item">
-        <div class="service-item-icon">🏡</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <div class="service-item-title">Buy a Luxury Home</div>
         <div class="service-item-desc">Access exclusive listings and off-market properties across South Florida's finest communities.</div>
       </div>
       <div class="service-item">
-        <div class="service-item-icon">📋</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
         <div class="service-item-title">Sell Your Property</div>
         <div class="service-item-desc">Strategic pricing, elite marketing, and a global network to maximize your sale value.</div>
       </div>
       <div class="service-item">
-        <div class="service-item-icon">🏗</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
         <div class="service-item-title">Pre-Construction</div>
         <div class="service-item-desc">First access to South Florida's most sought-after new developments and investment opportunities.</div>
       </div>
       <div class="service-item">
-        <div class="service-item-icon">✈️</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
         <div class="service-item-title">Relocate to South Florida</div>
         <div class="service-item-desc">A seamless transition into the South Florida lifestyle with concierge-level guidance.</div>
       </div>
       <div class="service-item">
-        <div class="service-item-icon">📈</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
         <div class="service-item-title">Invest in Real Estate</div>
         <div class="service-item-desc">Data-driven investment strategy in high-end markets with long-term value creation.</div>
       </div>
       <div class="service-item">
-        <div class="service-item-icon">🤝</div>
+        <div class="service-item-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
         <div class="service-item-title">Private Consultation</div>
         <div class="service-item-desc">A confidential, one-on-one conversation about your real estate goals and opportunities.</div>
       </div>
@@ -1012,10 +1035,11 @@
       <div class="contact-info-text">
         <div class="contact-info-row"><a href="tel:+19545297337">+1 (954) 529-7337</a></div>
         <div class="contact-info-row"><a href="mailto:fab33076@gmail.com">fab33076@gmail.com</a></div>
-        <div class="contact-info-row"><a href="https://instagram.com/beethelightllc" target="_blank">@beethelightllc</a></div>
       </div>
 
-      <img src="images/fab.jpeg" alt="Fabiola Acevedo P.A." class="contact-fab-img" />
+      <div class="contact-fab-wrap">
+        <img src="images/fab-hires.jpeg" alt="Fabiola Acevedo P.A." class="contact-fab-img" />
+      </div>
     </div>
 
     <div class="contact-form">
