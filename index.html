@@ -441,6 +441,8 @@
       margin-top: 40px;
       position: relative;
       max-width: 300px;
+      overflow: hidden;
+      height: 400px;
     }
     .contact-fab-wrap::before {
       content: '';
@@ -451,11 +453,12 @@
     }
     .contact-fab-img {
       width: 100%;
-      height: 380px;
+      height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center 10%;
       display: block;
       position: relative; z-index: 1;
+      transform: scale(1.25);
       box-shadow: 0 24px 64px rgba(0,0,0,0.5);
     }
 
