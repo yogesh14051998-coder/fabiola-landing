@@ -540,12 +540,12 @@
     }
 
     .service-item {
-      background: var(--white);
+      background: rgba(255,255,255,0.55);
       padding: 28px 24px;
       border-left: 3px solid transparent;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .service-item:hover { border-left-color: var(--gold); }
+    .service-item:hover { border-left-color: var(--navy-deep); background: rgba(255,255,255,0.85); }
 
     .service-item-icon {
       width: 44px; height: 44px;
@@ -648,38 +648,38 @@
     .reveal {
       opacity: 0;
       transform: translateY(52px) scale(0.98);
-      transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-                  transform 1s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
     .reveal-left {
       opacity: 0;
       transform: translateX(-52px);
-      transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-                  transform 1s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal-left.visible { opacity: 1; transform: translateX(0); }
 
     .reveal-right {
       opacity: 0;
       transform: translateX(52px);
-      transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-                  transform 1s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
     .reveal-child {
       opacity: 0;
       transform: translateY(36px);
-      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
-                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+      transition: opacity 0.4s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.4s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal-child.visible { opacity: 1; transform: translateY(0); }
 
     /* ── CONTACT ── */
     .contact-section {
-      background: linear-gradient(160deg, #faf2cc 0%, #f7ebb0 50%, #fdf6d8 100%);
+      background: var(--white);
       padding: 100px 5%;
     }
 
@@ -837,7 +837,7 @@
 
     /* ── CLOSING ── */
     .closing-section {
-      background: var(--white);
+      background: linear-gradient(160deg, #faf2cc 0%, #f5e89a 40%, #fdf6d8 100%);
       text-align: center;
       padding: 120px 5%;
     }
@@ -849,7 +849,7 @@
       font-size: clamp(1.4rem, 3vw, 2.2rem);
       font-weight: 300;
       font-style: italic;
-      color: var(--navy);
+      color: var(--navy-deep);
       max-width: 760px;
       margin: 0 auto 28px;
       line-height: 1.6;
@@ -923,7 +923,7 @@
       <span>Keller Williams Luxury · South Florida</span>
     </div>
   </a>
-  <a href="#contact" class="nav-cta" style="background:transparent;color:var(--navy-deep);border:1px solid rgba(30,26,14,0.3);">Private Consultation</a>
+  <a href="#contact" class="nav-cta" style="background:#f5e89a;color:var(--navy-deep);border:1px solid rgba(180,140,50,0.35);">Private Consultation</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -972,89 +972,16 @@
   </div>
 </section>
 
-<!-- ── AREAS ── -->
-<section class="areas-section" id="areas">
-  <p class="section-tag" style="color:var(--gold);">Areas of Focus</p>
-  <h2 class="section-title">Exclusive <em style="color:var(--gold-light);">Markets</em> We Serve</h2>
-  <p class="section-body" style="margin:0 auto 60px;">From Palm Beach Island to the vibrant streets of Miami, I bring unmatched local expertise to every luxury market in South Florida.</p>
-
-  <div class="areas-grid reveal">
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=85&fit=crop" alt="Palm Beach Island" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Palm Beach Island</div>
-        <div class="area-card-sub">Ultra-Luxury Estates</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=85&fit=crop" alt="West Palm Beach" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">West Palm Beach</div>
-        <div class="area-card-sub">Waterfront Living</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85&fit=crop" alt="Miami" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Miami</div>
-        <div class="area-card-sub">World-Class City Living</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85&fit=crop" alt="Fort Lauderdale" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Fort Lauderdale</div>
-        <div class="area-card-sub">Yachting Capital</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=85&fit=crop" alt="Boca Raton" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Boca Raton</div>
-        <div class="area-card-sub">Prestigious Communities</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=85&fit=crop" alt="Delray Beach" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Delray Beach</div>
-        <div class="area-card-sub">Coastal Elegance</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Jupiter</div>
-        <div class="area-card-sub">Exclusive North County</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=85&fit=crop" alt="Pre-Construction Miami" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">Pre-Construction</div>
-        <div class="area-card-sub">Exclusive Opportunities</div>
-      </div>
-    </div>
-    <div class="area-card">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=85&fit=crop" alt="South Florida Luxury" loading="lazy" />
-      <div class="area-card-overlay">
-        <div class="area-card-name">South Florida Luxury</div>
-        <div class="area-card-sub">Waterfront &amp; Estate Markets</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── SERVICES ── -->
-<section class="services-section" id="services">
+<section class="services-section" id="services" style="background:#FAD643;">
   <div class="services-inner reveal">
     <div>
-      <p class="section-tag">How I Can Help</p>
-      <h2 class="section-title">Your Real Estate <em>Journey</em> Starts Here</h2>
-      <p class="section-body">Whether you are relocating, investing, or searching for your forever home, I offer a white-glove experience tailored to your unique vision and lifestyle.</p>
+      <p class="section-tag" style="color:var(--navy-deep);">How I Can Help</p>
+      <h2 class="section-title" style="color:var(--navy-deep);">Your Real Estate <em style="color:var(--navy);">Journey</em> Starts Here</h2>
+      <p class="section-body" style="color:var(--navy-deep);">Whether you are relocating, investing, or searching for your forever home, I offer a white-glove experience tailored to your unique vision and lifestyle.</p>
       <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px;">
-        <a href="#contact?intent=buy" class="btn-primary">I Want to Buy</a>
-        <a href="#contact?intent=sell" class="btn-outline" style="color:var(--navy);border-color:rgba(26,39,68,0.3);">I Want to Sell</a>
+        <a href="#contact" class="btn-primary" style="background:var(--navy-deep);color:#FAD643;">I Want to Buy</a>
+        <a href="#contact" class="btn-outline" style="color:var(--navy-deep);border-color:var(--navy-deep);">I Want to Sell</a>
       </div>
     </div>
     <div class="services-list">
@@ -1104,8 +1031,54 @@
   </div>
 </section>
 
+<!-- ── AREAS ── -->
+<section class="areas-section" id="areas" style="background:var(--white);">
+  <p class="section-tag" style="color:var(--gold-dark);">Areas of Focus</p>
+  <h2 class="section-title" style="color:var(--navy-deep);">Exclusive <em>Markets</em> We Serve</h2>
+  <p class="section-body" style="margin:0 auto 60px;color:var(--text-mid);">From Palm Beach Island to the vibrant streets of Miami, I bring unmatched local expertise to every luxury market in South Florida.</p>
+
+  <div class="areas-grid reveal">
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=85&fit=crop" alt="Palm Beach Island" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Palm Beach Island</div><div class="area-card-sub">Ultra-Luxury Estates</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=85&fit=crop" alt="West Palm Beach" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">West Palm Beach</div><div class="area-card-sub">Waterfront Living</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=800&q=85&fit=crop" alt="Miami" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Miami</div><div class="area-card-sub">World-Class City Living</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85&fit=crop" alt="Fort Lauderdale" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Fort Lauderdale</div><div class="area-card-sub">Yachting Capital</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=85&fit=crop" alt="Boca Raton" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Boca Raton</div><div class="area-card-sub">Prestigious Communities</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=85&fit=crop" alt="Delray Beach" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Delray Beach</div><div class="area-card-sub">Coastal Elegance</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Jupiter</div><div class="area-card-sub">Exclusive North County</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=85&fit=crop" alt="Pre-Construction" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">Pre-Construction</div><div class="area-card-sub">Exclusive Opportunities</div></div>
+    </div>
+    <div class="area-card">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=85&fit=crop" alt="South Florida Luxury" loading="lazy" />
+      <div class="area-card-overlay"><div class="area-card-name">South Florida Luxury</div><div class="area-card-sub">Waterfront &amp; Estate Markets</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ── CTA STRIP ── -->
-<div class="cta-strip">
+<div class="cta-strip" style="background:linear-gradient(160deg,#faf2cc 0%,#f5e89a 40%,#fdf6d8 100%);">
   <h2>Interested in Pre-Construction Opportunities?</h2>
   <p>Be the first to know about exclusive new developments across Palm Beach, Miami, and South Florida.</p>
   <div class="cta-strip-btns">
@@ -1188,8 +1161,7 @@
 <section class="closing-section">
   <div class="gold-divider"></div>
   <p class="closing-quote">"Your next home, investment, or legacy property deserves more than a transaction. It deserves strategy, elegance, market knowledge, and a trusted advisor who understands luxury, lifestyle, and long-term value."</p>
-  <p class="closing-sub">Begin your South Florida real estate journey with Fabiola Acevedo.</p>
-  <a href="#contact" class="btn-primary" style="font-size:0.8rem; padding:18px 40px;">Begin Your Journey</a>
+  <p class="closing-sub" style="color:var(--text-mid);">Begin your South Florida real estate journey with Fabiola Acevedo.</p>
 </section>
 
 <!-- ── LIGHTBOX ── -->
@@ -1294,7 +1266,7 @@
   // Stagger area cards, service items, stats
   document.querySelectorAll('.areas-grid .area-card, .services-list .service-item, .about-stats > div').forEach((el, i) => {
     el.classList.add('reveal-child');
-    el.dataset.delay = i * 80;
+    el.dataset.delay = i * 40;
     observer.observe(el);
   });
 
