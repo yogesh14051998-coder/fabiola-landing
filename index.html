@@ -1143,9 +1143,6 @@
       <div class="form-title">Request a Private Consultation</div>
       <div class="form-sub">All inquiries handled with complete discretion. &nbsp;<span style="color:var(--gold);font-size:0.7rem;">* Required</span></div>
       <form id="inquiryForm" onsubmit="handleSubmit(event)">
-        <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY" />
-        <input type="hidden" name="subject" id="f_subject" value="New Inquiry — Fabiola Acevedo Real Estate" />
-        <input type="hidden" name="from_name" value="Fabiola Acevedo Landing Page" />
         <div class="form-group">
           <label>Full Name <span class="req">*</span></label>
           <input type="text" id="f_name" name="name" placeholder="Your full name" required />
@@ -1206,53 +1203,56 @@
 </footer>
 
 <script>
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
     const status = document.getElementById('form-status');
-    const interest = document.getElementById('f_interest').value;
 
-    // Update subject dynamically
-    document.getElementById('f_subject').value = 'New Inquiry — ' + interest;
+    const name     = document.getElementById('f_name').value.trim();
+    const email    = document.getElementById('f_email').value.trim();
+    const phone    = document.getElementById('f_phone').value.trim();
+    const interest = document.getElementById('f_interest').value;
+    const msg      = document.getElementById('f_msg').value.trim();
+
+    // Build mailto
+    const subject = encodeURIComponent('New Inquiry — ' + interest);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Interest: ' + interest +
+      (msg ? '\nMessage: ' + msg : '')
+    );
+
+    // Build WhatsApp message
+    const waMsg = encodeURIComponent(
+      'Hello Fabiola,\n\nMy name is ' + name + ' and I am interested in: ' + interest + '.\n\nEmail: ' + email + '\nPhone: ' + phone +
+      (msg ? '\n\nMessage: ' + msg : '') +
+      '\n\nLooking forward to connecting!'
+    );
 
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    status.style.display = 'none';
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    // Open email client
+    window.location.href = 'mailto:fab33076@gmail.com?subject=' + subject + '&body=' + body;
 
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const result = await res.json();
-
-      if (result.success) {
-        btn.textContent = 'Inquiry Sent ✓';
-        btn.style.background = '#4caf50';
-        status.textContent = 'Thank you! Fabiola will be in touch shortly.';
-        status.style.color = '#2e7d32';
-        status.style.display = 'block';
-        e.target.reset();
-        setTimeout(() => {
-          btn.textContent = 'Send My Inquiry';
-          btn.style.background = '';
-          btn.disabled = false;
-          status.style.display = 'none';
-        }, 5000);
-      } else {
-        throw new Error('Submission failed');
-      }
-    } catch {
-      btn.textContent = 'Send My Inquiry';
-      btn.disabled = false;
-      status.textContent = 'Something went wrong. Please try again or contact directly via WhatsApp.';
-      status.style.color = '#c0392b';
+    // Open WhatsApp after short delay
+    setTimeout(() => {
+      window.open('https://wa.me/19545297337?text=' + waMsg, '_blank');
+      btn.textContent = 'Inquiry Sent ✓';
+      btn.style.background = '#4caf50';
+      status.textContent = '✓ Opening email and WhatsApp for you now.';
+      status.style.color = '#2e7d32';
       status.style.display = 'block';
-    }
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send My Inquiry';
+        btn.style.background = '#b8893a';
+        btn.disabled = false;
+        status.style.display = 'none';
+      }, 5000);
+    }, 800);
   }
 
   // Smooth scroll for all anchor links
