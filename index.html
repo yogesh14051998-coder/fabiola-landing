@@ -37,12 +37,13 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(26, 21, 8, 0.97);
-      backdrop-filter: blur(8px);
+      background: rgba(250, 244, 220, 0.97);
+      backdrop-filter: blur(10px);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5%;
       height: 76px;
-      border-bottom: 1px solid rgba(184,151,90,0.3);
+      border-bottom: 1px solid rgba(180,140,50,0.2);
+      box-shadow: 0 2px 20px rgba(180,140,50,0.08);
     }
 
     .nav-logo {
@@ -56,26 +57,26 @@
 
     .nav-brand {
       font-family: 'Cormorant Garamond', serif;
-      color: var(--gold);
+      color: var(--navy-deep);
       font-size: 1.1rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.05em;
       line-height: 1.2;
     }
 
     .nav-brand span {
       display: block;
-      font-size: 0.65rem;
+      font-size: 0.63rem;
       font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      color: rgba(212,180,122,0.7);
+      font-weight: 400;
+      color: var(--gold-dark);
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
     .nav-cta {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--navy-deep);
+      color: var(--gold-light);
       border: none;
       padding: 10px 22px;
       font-family: 'Montserrat', sans-serif;
@@ -87,12 +88,12 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta:hover { background: var(--navy); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, #1e1a0e 0%, #2e2510 50%, #3a2f14 100%);
+      background: linear-gradient(160deg, #faf2cc 0%, #f5e89a 40%, #fdf6d8 100%);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center;
@@ -105,31 +106,28 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(184,151,90,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(184,151,90,0.06) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(180,130,30,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(180,130,30,0.05) 0%, transparent 70%);
     }
 
     .hero-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.3em;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dark);
       margin-bottom: 20px;
       position: relative;
+      white-space: nowrap;
     }
 
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      content: '——';
-      margin: 0 10px;
-      opacity: 0.5;
-    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
       font-weight: 300;
-      color: var(--white);
+      color: var(--navy-deep);
       line-height: 1.1;
       margin-bottom: 12px;
       position: relative;
@@ -137,14 +135,14 @@
 
     .hero h1 em {
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--gold-dark);
     }
 
     .hero-title-sub {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1rem, 2vw, 1.4rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(30,26,14,0.5);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 36px;
@@ -153,7 +151,7 @@
 
     .gold-divider {
       width: 60px; height: 1px;
-      background: var(--gold);
+      background: var(--gold-dark);
       margin: 0 auto 36px;
       position: relative;
     }
@@ -162,7 +160,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.3rem, 3vw, 2rem);
       font-weight: 400;
-      color: rgba(255,255,255,0.9);
+      color: var(--navy-deep);
       max-width: 680px;
       line-height: 1.5;
       margin-bottom: 20px;
@@ -172,7 +170,7 @@
     .hero p {
       font-size: 0.9rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
+      color: rgba(30,26,14,0.65);
       max-width: 560px;
       line-height: 1.8;
       margin-bottom: 48px;
@@ -204,8 +202,8 @@
 
     .btn-outline {
       background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(184,151,90,0.5);
+      color: var(--navy-deep);
+      border: 1px solid rgba(30,26,14,0.3);
       padding: 15px 30px;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.75rem;
@@ -218,8 +216,8 @@
       display: inline-block;
     }
     .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
+      border-color: var(--gold-dark);
+      color: var(--gold-dark);
       transform: translateY(-2px);
     }
 
@@ -246,7 +244,7 @@
       position: absolute; bottom: 30px; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 6px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(30,26,14,0.35);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -255,7 +253,7 @@
     .scroll-hint::after {
       content: '';
       width: 1px; height: 40px;
-      background: linear-gradient(to bottom, rgba(184,151,90,0.5), transparent);
+      background: linear-gradient(to bottom, rgba(180,140,50,0.5), transparent);
     }
 
     /* ── SECTION BASE ── */
@@ -442,18 +440,18 @@
 
     /* ── CONTACT FABIOLA PHOTO ── */
     .contact-fab-wrap {
-      margin-top: 40px;
+      margin: 36px auto 0;
       position: relative;
       width: 240px;
       height: 300px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
     .contact-fab-wrap::before {
       content: '';
       position: absolute;
       top: -10px; left: -10px; right: 10px; bottom: 10px;
-      border: 1px solid rgba(212,168,75,0.3);
+      border: 1px solid rgba(180,140,50,0.4);
       z-index: 0; pointer-events: none;
     }
     .contact-fab-img {
@@ -615,7 +613,7 @@
 
     /* ── CONTACT ── */
     .contact-section {
-      background: linear-gradient(160deg, #1e1a0e 0%, #352a12 100%);
+      background: linear-gradient(160deg, #faf2cc 0%, #f7ebb0 50%, #fdf6d8 100%);
       padding: 100px 5%;
     }
 
@@ -633,14 +631,22 @@
       align-items: start;
     }
 
-    .contact-section .section-title { color: var(--white); }
-    .contact-section .section-body { color: rgba(255,255,255,0.5); }
+    .contact-section .section-title { color: var(--navy-deep); }
+    .contact-section .section-body { color: var(--text-mid); }
 
     .contact-details { margin-top: 40px; }
+
+    .contact-left-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
     .social-icons {
       display: flex; gap: 16px; flex-wrap: wrap;
       margin-top: 36px;
+      justify-content: center;
     }
 
     .social-icon-btn {
@@ -654,11 +660,11 @@
     .social-icon-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
     .social-icon-btn svg { width: 22px; height: 22px; }
 
-    .icon-phone   { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
-    .icon-email   { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
-    .icon-whatsapp { background: #25D366; border: 1px solid #25D366; color: #fff; }
+    .icon-phone   { background: var(--navy-deep); border: none; color: var(--gold-light); }
+    .icon-email   { background: var(--navy-deep); border: none; color: var(--gold-light); }
+    .icon-whatsapp { background: #25D366; border: none; color: #fff; }
     .icon-instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border: none; color: #fff; }
-    .icon-web     { background: rgba(232,201,122,0.15); border: 1px solid rgba(232,201,122,0.3); color: var(--gold); }
+    .icon-web     { background: var(--navy-deep); border: none; color: var(--gold-light); }
 
     .contact-info-text {
       margin-top: 32px;
@@ -680,22 +686,23 @@
     .contact-info-row a:hover { color: var(--gold); }
 
     .contact-form {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(184,151,90,0.15);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(180,140,50,0.25);
       padding: 40px;
+      backdrop-filter: blur(6px);
     }
 
     .form-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
       font-weight: 400;
-      color: var(--white);
+      color: var(--navy-deep);
       margin-bottom: 8px;
     }
 
     .form-sub {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
+      color: var(--text-mid);
       margin-bottom: 28px;
       font-weight: 300;
     }
@@ -718,9 +725,9 @@
     .form-group select,
     .form-group textarea {
       width: 100%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(184,151,90,0.2);
-      color: var(--white);
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(180,140,50,0.3);
+      color: var(--navy-deep);
       padding: 12px 16px;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.82rem;
@@ -738,10 +745,10 @@
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.25);
+      color: rgba(30,26,14,0.3);
     }
 
-    .form-group select option { background: var(--navy-deep); }
+    .form-group select option { background: var(--off-white); color: var(--navy-deep); }
 
     .form-group textarea { resize: vertical; min-height: 90px; }
 
@@ -791,7 +798,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #1a1508;
+      background: var(--navy-deep);
       padding: 40px 5%;
       display: flex;
       align-items: center;
@@ -1058,7 +1065,7 @@
     <p class="section-body" style="color:rgba(255,255,255,0.5);margin:0 auto;text-align:center;">For private inquiries, consultations, and exclusive opportunities, I am here to assist you with the utmost discretion and professionalism.</p>
   </div>
   <div class="contact-inner">
-    <div class="reveal-left">
+    <div class="contact-left-col reveal-left">
       <!-- Elegant icon row -->
       <div class="social-icons">
         <a href="tel:+19545297337" class="social-icon-btn icon-phone" title="Call Fabiola">
