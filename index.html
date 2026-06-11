@@ -299,7 +299,7 @@
     .about-section {
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
+      min-height: 118vh;
     }
 
     .about-bg-photo {
@@ -321,7 +321,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      min-height: 100vh;
+      min-height: 118vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -330,19 +330,18 @@
     }
 
     .about-header {
-      max-width: 520px;
+      max-width: 480px;
       background: rgba(255, 255, 255, 0.92);
       padding: 28px 36px;
       border-left: 3px solid var(--gold);
     }
 
     .about-footer-content {
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-      width: 100%;
+      max-width: 440px;
+      margin: 0 0 0 auto;
+      text-align: left;
       background: rgba(255, 255, 255, 0.92);
-      padding: 36px 44px;
+      padding: 32px 36px;
     }
 
     .about-stats {
@@ -907,11 +906,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .about-section { min-height: unset; display: block; }
-      .about-bg-photo { position: relative !important; width: 100%; height: 440px; display: block; object-position: center 20%; }
-      .about-overlay { display: none; }
-      .about-inner { min-height: unset; flex-direction: column; justify-content: flex-start; gap: 32px; padding: 50px 6%; background: #fff; }
-      .about-footer-content { text-align: left; margin: 0; }
+      .about-section { min-height: 100vh; }
+      .about-inner { min-height: 100vh; padding: 40px 5% 48px; }
+      .about-header { max-width: 92%; padding: 18px 22px; }
+      .about-footer-content { max-width: 100%; margin: 0; text-align: left; padding: 22px 20px; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .services-inner { grid-template-columns: 1fr; gap: 50px; }
       .contact-inner { grid-template-columns: 1fr; gap: 50px; }
