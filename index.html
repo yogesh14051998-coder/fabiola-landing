@@ -295,56 +295,50 @@
       max-width: 620px;
     }
 
-    /* ── ABOUT ── */
-    .about {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+    /* ── ABOUT (full background photo) ── */
+    .about-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 740px;
+      display: flex;
       align-items: center;
+    }
+
+    .about-bg-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 20% top;
+    }
+
+    .about-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 34%,
+        rgba(255,255,255,0.6) 47%,
+        rgba(255,255,255,0.97) 59%,
+        #ffffff 72%
+      );
+    }
+
+    .about-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .about-img-wrap {
-      position: relative;
-    }
-
-    .about-img-wrap::before {
-      content: '';
-      position: absolute;
-      top: -20px; left: -20px;
-      right: 20px; bottom: 20px;
-      border: 1px solid var(--gold);
-      opacity: 0.3;
-      z-index: 0;
-    }
-
-    .about-img-wrap img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      position: relative;
-      z-index: 1;
-      filter: sepia(5%);
-    }
-
-    .about-img-placeholder {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--navy) 0%, #2a4080 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 16px;
-      position: relative; z-index: 1;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-    }
-
-    .about-img-placeholder svg {
-      width: 60px; height: 60px;
-      opacity: 0.2;
+      padding: 100px 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 740px;
+      box-sizing: border-box;
     }
 
     .about-content { padding-right: 20px; }
@@ -911,8 +905,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .about { grid-template-columns: 1fr; gap: 50px; padding: 80px 5%; }
-      .about-img-wrap { max-width: 400px; }
+      .about-section { min-height: unset; display: block; }
+      .about-bg-photo { position: relative !important; width: 100%; height: 420px; display: block; object-position: center top; }
+      .about-overlay { display: none; }
+      .about-inner { grid-template-columns: 1fr; min-height: unset; padding: 60px 5%; background: #fff; }
+      .about-spacer { display: none; }
       .about-content { padding-right: 0; }
       .services-inner { grid-template-columns: 1fr; gap: 50px; }
       .contact-inner { grid-template-columns: 1fr; gap: 50px; }
@@ -934,9 +931,9 @@
 <!-- ── NAVIGATION ── -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.jpeg" alt="Team Luxury by Fab" style="width:58px;height:58px;object-fit:cover;border-radius:6px;box-shadow:0 2px 12px rgba(232,201,122,0.3);" />
+    <img src="logo.jpeg" alt="Fabiola Acevedo P.A." style="width:58px;height:58px;object-fit:cover;border-radius:6px;box-shadow:0 2px 12px rgba(232,201,122,0.3);" />
     <div class="nav-brand">
-      Team Luxury by Fab
+      Fabiola Acevedo P.A.
       <span>Keller Williams Luxury · South Florida</span>
     </div>
   </a>
@@ -956,11 +953,11 @@
 </section>
 
 <!-- ── ABOUT ── -->
-<section style="background: var(--white); padding: 100px 5%;" id="about">
-  <div class="about">
-    <div class="about-img-wrap reveal-left">
-      <img src="fabiola.jpeg" alt="Fabiola Acevedo P.A. — Luxury Real Estate Advisor" style="width:100%;display:block;object-fit:cover;object-position:center top;aspect-ratio:3/4;position:relative;z-index:1;filter:sepia(5%);" />
-    </div>
+<section class="about-section" id="about">
+  <img src="fabiola.jpeg" alt="Fabiola Acevedo P.A. — Luxury Real Estate Advisor" class="about-bg-photo" />
+  <div class="about-overlay"></div>
+  <div class="about-inner">
+    <div class="about-spacer"></div>
     <div class="about-content reveal-right">
       <p class="section-tag">Meet Fabiola</p>
       <h2 class="section-title">A Trusted Advisor in <em>Luxury</em></h2>
