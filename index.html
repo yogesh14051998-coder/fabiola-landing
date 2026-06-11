@@ -295,13 +295,11 @@
       max-width: 620px;
     }
 
-    /* ── ABOUT (full background photo) ── */
+    /* ── ABOUT (full background photo, title top / bio bottom) ── */
     .about-section {
       position: relative;
       overflow: hidden;
-      min-height: 740px;
-      display: flex;
-      align-items: center;
+      min-height: 95vh;
     }
 
     .about-bg-photo {
@@ -310,18 +308,22 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 20% top;
+      object-position: center top;
     }
 
     .about-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to right,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0) 50%,
-        rgba(255,255,255,0.92) 62%,
-        #ffffff 68%
+        to bottom,
+        #ffffff 0%,
+        rgba(255,255,255,0.95) 6%,
+        rgba(255,255,255,0.45) 17%,
+        rgba(255,255,255,0) 27%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.65) 72%,
+        rgba(255,255,255,0.97) 84%,
+        #ffffff 100%
       );
     }
 
@@ -329,25 +331,29 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 5%;
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 60px;
-      align-items: center;
-      min-height: 740px;
+      min-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 62px 8% 74px;
       box-sizing: border-box;
     }
 
-    .about-content { padding-right: 20px; }
+    .about-header { max-width: 640px; }
+
+    .about-footer-content {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+    }
 
     .about-stats {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      margin-top: 40px;
-      padding-top: 40px;
+      margin-top: 32px;
+      padding-top: 32px;
       border-top: 1px solid rgba(184,151,90,0.2);
     }
 
@@ -905,11 +911,11 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .about-section { min-height: unset; display: block; }
-      .about-bg-photo { position: relative !important; width: 100%; height: 420px; display: block; object-position: center top; }
+      .about-bg-photo { position: relative !important; width: 100%; height: 440px; display: block; object-position: center 20%; }
       .about-overlay { display: none; }
-      .about-inner { grid-template-columns: 1fr; min-height: unset; padding: 60px 5%; background: #fff; }
-      .about-spacer { display: none; }
-      .about-content { padding-right: 0; }
+      .about-inner { min-height: unset; flex-direction: column; justify-content: flex-start; gap: 32px; padding: 50px 6%; background: #fff; }
+      .about-footer-content { text-align: left; margin: 0; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
       .services-inner { grid-template-columns: 1fr; gap: 50px; }
       .contact-inner { grid-template-columns: 1fr; gap: 50px; }
     }
@@ -956,13 +962,16 @@
   <img src="fabiola.jpeg" alt="Fabiola Acevedo P.A. — Luxury Real Estate Advisor" class="about-bg-photo" />
   <div class="about-overlay"></div>
   <div class="about-inner">
-    <div class="about-spacer"></div>
-    <div class="about-content reveal-right">
+
+    <!-- TOP: title -->
+    <div class="about-header reveal">
       <p class="section-tag">Meet Fabiola</p>
       <h2 class="section-title">A Trusted Advisor in <em>Luxury</em></h2>
-      <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. As a proud member of <strong>Keller Williams Luxury</strong>, she brings unmatched market expertise and a global network to every client. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market while leading purpose-driven initiatives focused on leadership, empowerment, and personal transformation.</p>
-      <br>
-      <p class="section-body">Throughout her career, Fabiola has been recognized for her commitment to integrity, diversity, and conscious leadership. Her work blends business excellence with a strong focus on human development — helping individuals and communities thrive through vision, resilience, and purpose.</p>
+    </div>
+
+    <!-- BOTTOM: bio + stats -->
+    <div class="about-footer-content reveal">
+      <p class="section-body">Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience in the real estate industry. As a proud member of <strong>Keller Williams Luxury</strong>, she brings unmatched market expertise and a global network to every client. Originally from Chile and based in South Florida, she has built a successful career advising clients in the luxury residential market — blending business excellence with integrity, diversity, and conscious leadership.</p>
       <div class="about-stats">
         <div>
           <div class="stat-num">25+</div>
@@ -982,6 +991,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
