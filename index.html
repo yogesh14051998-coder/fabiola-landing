@@ -295,11 +295,11 @@
       max-width: 620px;
     }
 
-    /* ── ABOUT (full background photo, title top / bio bottom) ── */
+    /* ── ABOUT (full background photo, fade top/bottom) ── */
     .about-section {
       position: relative;
       overflow: hidden;
-      min-height: 118vh;
+      min-height: 165vh;
     }
 
     .about-bg-photo {
@@ -314,34 +314,39 @@
     .about-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.06);
+      background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 14%,
+        rgba(255,255,255,0.4) 21%,
+        rgba(255,255,255,0) 28%,
+        rgba(255,255,255,0) 62%,
+        rgba(255,255,255,0.4) 70%,
+        #ffffff 78%,
+        #ffffff 100%
+      );
     }
 
     .about-inner {
       position: relative;
       z-index: 2;
       width: 100%;
-      min-height: 118vh;
+      min-height: 165vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 16px 1.5% 18px;
+      padding: 52px 7% 62px;
       box-sizing: border-box;
     }
 
     .about-header {
-      max-width: 480px;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 28px 36px;
-      border-left: 3px solid var(--gold);
+      max-width: 580px;
     }
 
     .about-footer-content {
-      max-width: 360px;
-      margin: 0 0 0 auto;
-      text-align: left;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 26px 30px;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .about-stats {
@@ -351,10 +356,6 @@
       margin-top: 32px;
       padding-top: 32px;
       border-top: 1px solid rgba(184,151,90,0.2);
-    }
-
-    .about-footer-content .about-stats {
-      grid-template-columns: 1fr 1fr;
     }
 
     .stat-num {
@@ -910,11 +911,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .about-section { min-height: 120vh; }
-      .about-overlay { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 11%, rgba(255,255,255,0.5) 19%, rgba(255,255,255,0) 27%, rgba(255,255,255,0) 66%, rgba(255,255,255,0.5) 74%, #ffffff 83%, #ffffff 100%); }
-      .about-inner { min-height: 120vh; padding: 30px 6% 38px; flex-direction: column; justify-content: space-between; gap: 0; background: transparent; }
-      .about-header { background: transparent; border-left: none; padding: 0; max-width: 100%; }
-      .about-footer-content { background: transparent; max-width: 100%; margin: 0; text-align: left; padding: 0; }
+      .about-section { min-height: 150vh; }
+      .about-overlay { background: linear-gradient(to bottom, #ffffff 0%, #ffffff 13%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0) 27%, rgba(255,255,255,0) 64%, rgba(255,255,255,0.4) 72%, #ffffff 80%, #ffffff 100%); }
+      .about-inner { min-height: 150vh; padding: 40px 6% 50px; justify-content: space-between; gap: 0; background: transparent; }
+      .about-header { max-width: 100%; }
+      .about-footer-content { max-width: 100%; margin: 0; text-align: left; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .services-inner { grid-template-columns: 1fr; gap: 50px; }
       .contact-inner { grid-template-columns: 1fr; gap: 50px; }
