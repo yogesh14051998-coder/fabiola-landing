@@ -933,6 +933,147 @@
       footer { flex-direction: column; text-align: center; }
       .footer-copy { text-align: center; }
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       LUXURY MOTION LAYER  ·  added with ui-ux-pro-max guidance
+       transform/opacity only · ease-out enter · subtle, on-brand
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero { min-height: 100dvh; }
+
+    /* ── Gold scroll-progress hairline ── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0;
+      background: linear-gradient(90deg, #b8893a, #e2c55a, #b8893a);
+      box-shadow: 0 0 10px rgba(226,197,90,0.55);
+      z-index: 200; pointer-events: none;
+    }
+
+    /* ── Nav: entrance + refine-on-scroll ── */
+    nav {
+      transform: translateY(-105%);
+      transition: transform 0.75s var(--ease-luxe), height 0.35s var(--ease-luxe),
+                  background 0.35s var(--ease-luxe), box-shadow 0.35s var(--ease-luxe);
+    }
+    body.loaded nav { transform: translateY(0); }
+    nav.scrolled { height: 64px; background: rgba(255,255,255,0.93); box-shadow: 0 6px 30px rgba(120,90,30,0.13); }
+    nav .nav-logo img { transition: transform 0.4s var(--ease-luxe) !important; }
+    nav.scrolled .nav-logo img { transform: scale(0.86); }
+
+    /* ── Button sheen sweep + press feedback ── */
+    .nav-cta, .btn-primary, .btn-navy, .btn-white, .form-submit, .lightbox-cta { position: relative; overflow: hidden; }
+    .nav-cta::after, .btn-primary::after, .btn-navy::after, .btn-white::after,
+    .form-submit::after, .lightbox-cta::after {
+      content: ''; position: absolute; top: 0; left: -125%; width: 55%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.5), transparent);
+      transform: skewX(-18deg); transition: left 0.65s var(--ease-luxe); pointer-events: none;
+    }
+    .nav-cta:hover::after, .btn-primary:hover::after, .btn-navy:hover::after,
+    .btn-white:hover::after, .form-submit:hover::after, .lightbox-cta:hover::after { left: 145%; }
+    .nav-cta:active, .btn-primary:active, .btn-navy:active, .btn-white:active,
+    .btn-outline:active, .btn-whatsapp:active, .form-submit:active { transform: translateY(0) scale(0.97); }
+
+    /* ── Hero: sequenced entrance (scroll-hint handled separately) ── */
+    .hero-seq > *:not(.scroll-hint) {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.9s var(--ease-luxe), transform 0.9s var(--ease-luxe);
+    }
+    body.loaded .hero-seq > *:not(.scroll-hint) { opacity: 1; transform: translateY(0); }
+    body.loaded .hero-seq > *:nth-child(1) { transition-delay: 0.15s; }
+    body.loaded .hero-seq > *:nth-child(2) { transition-delay: 0.27s; }
+    body.loaded .hero-seq > *:nth-child(3) { transition-delay: 0.40s; }
+    body.loaded .hero-seq > *:nth-child(4) { transition-delay: 0.52s; }
+    body.loaded .hero-seq > *:nth-child(5) { transition-delay: 0.62s; }
+    body.loaded .hero-seq > *:nth-child(6) { transition-delay: 0.72s; }
+    body.loaded .hero-seq > *:nth-child(7) { transition-delay: 0.82s; }
+
+    /* Hero gold divider draws in */
+    body.loaded .hero .gold-divider { animation: drawLine 0.9s var(--ease-luxe) 0.66s both; }
+    @keyframes drawLine { from { width: 0; } to { width: 60px; } }
+
+    /* Scroll hint: fade in + gentle bob (keeps its translateX centering) */
+    .scroll-hint { opacity: 0; }
+    body.loaded .scroll-hint { animation: hintIn 0.8s var(--ease-luxe) 1.05s forwards, bob 2.6s ease-in-out 1.6s infinite; }
+    @keyframes hintIn { to { opacity: 0.55; } }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Slow drifting glow + cinematic Ken-Burns on the portrait */
+    .hero::before { animation: glowDrift 16s ease-in-out infinite alternate; }
+    @keyframes glowDrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(0,-3%,0) scale(1.05); } }
+    .about-bg-photo { animation: kenburns 26s ease-in-out infinite alternate; }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+
+    /* ── Signature gold shimmer on italic accents (light-bg sections only) ── */
+    .areas-section .section-title em,
+    .contact-section .section-title em,
+    .about-header .section-title em {
+      background: linear-gradient(100deg, #b8893a 0%, #d9ab46 28%, #f1dd92 50%, #d9ab46 72%, #b8893a 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      animation: goldSheen 5.5s ease-in-out infinite;
+    }
+    @keyframes goldSheen { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
+
+    /* ── Refine the existing reveal easing (more luxurious settle) ── */
+    .reveal, .reveal-left, .reveal-right, .reveal-child {
+      transition: opacity 0.7s var(--ease-luxe), transform 0.7s var(--ease-luxe);
+    }
+
+    /* ── Area cards: lift + drawn gold inset frame ── */
+    .area-card { transition: transform 0.5s var(--ease-luxe), box-shadow 0.5s var(--ease-luxe); will-change: transform; }
+    .area-card::after {
+      content: ''; position: absolute; inset: 10px; z-index: 2; pointer-events: none;
+      border: 1px solid rgba(245,232,154,0); transition: border-color 0.5s var(--ease-luxe);
+    }
+    .area-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(20,14,4,0.42); }
+    .area-card:hover::after { border-color: rgba(245,232,154,0.65); }
+
+    /* ── Service items: lift + icon gold fill ── */
+    .service-item { transition: border-color 0.3s var(--ease-luxe), background 0.3s var(--ease-luxe), transform 0.3s var(--ease-luxe); }
+    .service-item:hover { transform: translateY(-3px); }
+    .service-item-icon { transition: background 0.35s var(--ease-luxe), color 0.35s var(--ease-luxe), border-color 0.35s var(--ease-luxe); }
+    .service-item:hover .service-item-icon { background: var(--gold-light); border-color: var(--gold-light); color: #1a1a1a; }
+
+    /* ── Social icons: spring-ish pop already exists; add focus-visible ── */
+    .social-icon-btn:focus-visible,
+    .nav-cta:focus-visible, .btn-primary:focus-visible, .form-submit:focus-visible {
+      outline: 2px solid var(--gold-light); outline-offset: 3px;
+    }
+
+    /* ── Form: gold focus glow ── */
+    .form-group input, .form-group select, .form-group textarea {
+      transition: border-color 0.25s var(--ease-luxe), box-shadow 0.25s var(--ease-luxe);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      box-shadow: 0 0 0 3px rgba(184,137,58,0.18);
+    }
+
+    /* ════════ Respect reduced-motion (accessibility) ════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .hero-seq > *, .scroll-hint, .reveal, .reveal-left, .reveal-right, .reveal-child {
+        opacity: 1 !important; transform: none !important;
+      }
+      nav { transform: none !important; }
+      .areas-section .section-title em,
+      .contact-section .section-title em,
+      .about-header .section-title em {
+        -webkit-text-fill-color: currentColor; color: var(--gold);
+      }
+    }
   </style>
 </head>
 <body>
@@ -950,8 +1091,8 @@
 </nav>
 
 <!-- ── HERO ── -->
-<section class="hero" id="home">
-  <p class="hero-eyebrow reveal">Fabiola Acevedo P.A.</p>
+<section class="hero hero-seq" id="home">
+  <p class="hero-eyebrow">Fabiola Acevedo P.A.</p>
   <p class="hero-eyebrow-kw">Keller Williams Luxury</p>
   <h1>Luxury Real Estate<br><em>South Florida</em></h1>
   <p class="hero-title-sub">Palm Beach &nbsp;•&nbsp; Miami &nbsp;•&nbsp; South Florida</p>
@@ -1196,9 +1337,9 @@
 
 <!-- ── CLOSING ── -->
 <section class="closing-section">
-  <div class="gold-divider"></div>
-  <p class="closing-quote">"Your next home, investment, or legacy property deserves more than a transaction. It deserves strategy, elegance, market knowledge, and a trusted advisor who understands luxury, lifestyle, and long-term value."</p>
-  <p class="closing-sub">Begin your South Florida real estate journey with Fabiola Acevedo.</p>
+  <div class="gold-divider reveal"></div>
+  <p class="closing-quote reveal">"Your next home, investment, or legacy property deserves more than a transaction. It deserves strategy, elegance, market knowledge, and a trusted advisor who understands luxury, lifestyle, and long-term value."</p>
+  <p class="closing-sub reveal">Begin your South Florida real estate journey with Fabiola Acevedo.</p>
 </section>
 
 <!-- ── LIGHTBOX ── -->
@@ -1305,12 +1446,15 @@
     observer.observe(el);
   });
 
-  // Parallax hero
+  // Parallax hero (disabled under reduced-motion)
   const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y < window.innerHeight) hero.style.backgroundPositionY = `${y * 0.3}px`;
-  }, { passive: true });
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) hero.style.backgroundPositionY = `${y * 0.3}px`;
+    }, { passive: true });
+  }
 
   // Area card lightbox
   document.querySelectorAll('.area-card').forEach(card => {
@@ -1332,6 +1476,54 @@
     document.body.style.overflow = '';
   }
   window.closeLightbox = closeLightbox;
+
+  /* ═══════════ LUXURY MOTION LAYER · behavior ═══════════ */
+
+  // Trigger hero entrance sequence once the page is ready
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+  window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+  // Nav refine-on-scroll + gold progress hairline
+  const navEl = document.querySelector('nav');
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+
+  function onScrollUI() {
+    const y = window.scrollY;
+    navEl.classList.toggle('scrolled', y > 40);
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScrollUI, { passive: true });
+  window.addEventListener('resize', onScrollUI, { passive: true });
+  onScrollUI();
+
+  // Stat count-up (runs once when stats scroll into view)
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      if (el.dataset.counted) return;
+      const m = el.textContent.trim().match(/^(\d+)(.*)$/);
+      if (!m) return;                 // skip non-numeric (e.g. "P.A.")
+      el.dataset.counted = '1';
+      const target = parseInt(m[1], 10);
+      const suffix = m[2] || '';
+      if (prefersReduced) { el.textContent = target + suffix; return; }
+      const dur = 1500, start = performance.now();
+      el.textContent = '0' + suffix;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);   // ease-out cubic
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+      statObserver.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
 </script>
 </body>
 </html>
