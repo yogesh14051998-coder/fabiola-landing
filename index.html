@@ -1,2074 +1,1098 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fabiola Acevedo | Luxury Real Estate | Palm Beach · South Florida</title>
-  <meta name="description" content="Luxury Real Estate with Heart. Fabiola Acevedo, KW Luxury — Palm Beach, Miami, South Florida. 25+ years of excellence. Your next move, my priority." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabiola Acevedo P.A. — Luxury Real Estate · Palm Beach</title>
+  <meta name="description" content="Fabiola Acevedo P.A. — KW Luxury Palm Beach. 25+ years of excellence in South Florida luxury real estate. Buying, selling, investing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
-    /* ═══════════════════════════════════════════
-       VARIABLES
-    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --cream:       #F8F3EE;
-      --cream-dark:  #EFE8DF;
-      --white:       #FFFFFF;
-      --crimson:     #7A1010;
-      --crimson-deep:#5C0C0C;
-      --crimson-mid: #9A1515;
-      --gold:        #C4993D;
-      --gold-light:  #D4AF60;
-      --gold-pale:   #EDD98A;
-      --charcoal:    #1A1A1A;
-      --mid:         #4A4040;
-      --ease-lux:    cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
+      --gold:      #C9A84C;
+      --gold-dk:   #8B6914;
+      --gold-lt:   #D4B96A;
+      --gold-pale: #F0E2B0;
+      --cream:     #F5EFDF;
+      --cream-dk:  #EDE5CC;
+      --crimson:   #8B1A1A;
+      --black:     #1A0E04;
+      --text:      #2C1F10;
+      --text-mid:  #7A6040;
+      --white:     #FFFFFF;
+      --font-s:    'Cormorant Garamond', Georgia, serif;
+      --font-b:    'DM Sans', system-ui, sans-serif;
     }
 
-    /* ═══════════════════════════════════════════
-       RESET & BASE
-    ═══════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { overflow-x: hidden; scroll-behavior: smooth; }
+
     body {
-      font-family: 'DM Sans', sans-serif;
       background: var(--cream);
-      color: var(--charcoal);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
     }
+
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
 
-    /* ═══════════════════════════════════════════
-       PRELOADER
-    ═══════════════════════════════════════════ */
+    /* ─── PRELOADER ─── */
     #preloader {
-      position: fixed; inset: 0; z-index: 9999;
-      background: var(--crimson-deep);
+      position: fixed; inset: 0;
+      background: var(--black);
       display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.8s var(--ease-lux), visibility 0.8s;
+      flex-direction: column; gap: 28px;
+      z-index: 9999;
     }
-    #preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .preloader-inner {
-      text-align: center;
-    }
-    .preloader-logo {
-      width: 70px; height: 70px; margin: 0 auto 20px;
+    .pl-brand {
+      font-family: var(--font-s);
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
       opacity: 0;
-      animation: preLogoIn 0.6s var(--ease-lux) 0.2s forwards;
     }
-    @keyframes preLogoIn {
-      from { opacity: 0; transform: scale(0.7); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .preloader-text {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
-      color: var(--gold-light);
-      opacity: 0;
-      animation: preTextIn 0.7s var(--ease-lux) 0.5s forwards;
-    }
-    @keyframes preTextIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .preloader-line {
+    .pl-line {
       width: 0; height: 1px;
-      background: var(--gold-light);
-      margin: 14px auto 0;
-      animation: preLineGrow 0.8s var(--ease-lux) 0.8s forwards;
-    }
-    @keyframes preLineGrow {
-      from { width: 0; }
-      to   { width: 160px; }
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
     }
 
-    /* ═══════════════════════════════════════════
-       SCROLL PROGRESS
-    ═══════════════════════════════════════════ */
-    .scroll-progress {
-      position: fixed; top: 0; left: 0; height: 2px; width: 0;
-      background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
-      z-index: 200; pointer-events: none;
-      box-shadow: 0 0 8px rgba(196,153,61,0.5);
-    }
-
-    /* ═══════════════════════════════════════════
-       NAV
-    ═══════════════════════════════════════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 80px;
+    /* ─── NAV ─── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 28px 64px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      background: transparent;
-      transition: background 0.5s var(--ease-soft),
-                  height 0.4s var(--ease-lux),
-                  box-shadow 0.4s var(--ease-soft),
-                  transform 0.8s var(--ease-lux);
-      transform: translateY(-110%);
+      transition: background 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
     }
-    body.loaded nav { transform: translateY(0); }
-    nav.scrolled {
-      background: var(--white);
-      height: 68px;
-      box-shadow: 0 4px 30px rgba(122,16,16,0.08);
-      border-bottom: 1px solid rgba(196,153,61,0.15);
+    #nav.scrolled {
+      background: rgba(245,239,223,0.96);
+      backdrop-filter: blur(24px);
+      padding: 18px 64px;
+      box-shadow: 0 1px 0 rgba(201,168,76,0.18);
     }
-    nav.hero-zone { background: transparent; }
-
-    .nav-logo { display: flex; align-items: center; gap: 12px; }
-    .nav-logo-icon { width: 46px; height: 46px; flex-shrink: 0; transition: transform 0.4s var(--ease-lux); }
-    nav.scrolled .nav-logo-icon { transform: scale(0.88); }
-    .nav-brand-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--crimson);
-      line-height: 1.2;
-      letter-spacing: 0.01em;
-    }
-    nav.hero-zone .nav-brand-name { color: var(--crimson); }
-    .nav-brand-sub {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-    }
-
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--charcoal);
-      position: relative;
-      transition: color 0.2s;
-    }
-    nav.hero-zone .nav-links a { color: var(--charcoal); }
-    .nav-links a::after {
-      content: '';
-      position: absolute; bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: var(--crimson);
-      transition: width 0.3s var(--ease-lux);
-    }
-    .nav-links a:hover { color: var(--crimson); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-cta {
-      background: var(--crimson);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      font-size: 0.68rem !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.14em !important;
-      text-transform: uppercase !important;
-      transition: background 0.2s, transform 0.2s !important;
-      position: relative; overflow: hidden;
-    }
-    .nav-cta::after { display: none; }
-    .nav-cta:hover { background: var(--crimson-deep) !important; transform: translateY(-2px) !important; }
-
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
-
-    /* ═══════════════════════════════════════════
-       MOBILE NAV OVERLAY
-    ═══════════════════════════════════════════ */
-    .mobile-nav {
-      position: fixed; inset: 0; z-index: 99;
-      background: var(--crimson-deep);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 36px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.4s var(--ease-lux);
-    }
-    .mobile-nav.open { opacity: 1; pointer-events: all; }
-    .mobile-nav a {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--white);
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    .mobile-nav a:hover { color: var(--gold-light); }
-    .mobile-nav-close {
-      position: absolute; top: 24px; right: 28px;
-      font-size: 2rem; color: rgba(255,255,255,0.6);
-      cursor: pointer; background: none; border: none;
-      line-height: 1;
-    }
-
-    /* ═══════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════ */
-    .hero {
-      min-height: 100dvh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Left panel */
-    .hero-left {
-      background: var(--cream);
-      display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 120px 6% 80px;
-      position: relative; z-index: 2;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s var(--ease-lux) 0.4s, transform 0.7s var(--ease-lux) 0.4s;
-    }
-    body.loaded .hero-eyebrow { opacity: 1; transform: translateY(0); }
-
-    .hero-h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 4.5vw, 5.2rem);
-      font-weight: 700;
-      line-height: 1.08;
-      color: var(--charcoal);
-      margin-bottom: 10px;
-    }
-    .hero-h1 .line { display: block; overflow: hidden; }
-    .hero-h1 .line-inner {
-      display: block;
-      transform: translateY(110%);
-      transition: transform 0.9s var(--ease-lux);
-    }
-    body.loaded .hero-h1 .line:nth-child(1) .line-inner { transform: translateY(0); transition-delay: 0.55s; }
-    body.loaded .hero-h1 .line:nth-child(2) .line-inner { transform: translateY(0); transition-delay: 0.68s; }
-    body.loaded .hero-h1 .line:nth-child(3) .line-inner { transform: translateY(0); transition-delay: 0.80s; }
-
-    .hero-h1 em {
-      font-style: italic;
-      color: var(--crimson);
-    }
-
-    .hero-divider {
-      width: 0; height: 1px;
-      background: var(--gold);
-      margin: 28px 0;
-      transition: width 0.9s var(--ease-lux) 1s;
-    }
-    body.loaded .hero-divider { width: 80px; }
-
-    .hero-sub {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.7;
-      max-width: 440px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s var(--ease-lux) 1.1s, transform 0.7s var(--ease-lux) 1.1s;
-    }
-    body.loaded .hero-sub { opacity: 1; transform: translateY(0); }
-
-    .hero-btns {
-      display: flex; flex-wrap: wrap; gap: 14px;
-      margin-top: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s var(--ease-lux) 1.25s, transform 0.7s var(--ease-lux) 1.25s;
-    }
-    body.loaded .hero-btns { opacity: 1; transform: translateY(0); }
-
-    .btn-primary {
-      background: var(--crimson);
-      color: var(--white);
-      border: none;
-      padding: 15px 32px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      position: relative; overflow: hidden;
-      transition: background 0.25s, transform 0.25s;
-    }
-    .btn-primary::after {
-      content: '';
-      position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.28), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.6s var(--ease-lux);
-    }
-    .btn-primary:hover { background: var(--crimson-deep); transform: translateY(-2px); }
-    .btn-primary:hover::after { left: 160%; }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--crimson);
-      border: 1.5px solid var(--crimson);
-      padding: 14px 30px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-block;
-      transition: background 0.25s, color 0.25s, transform 0.25s;
-    }
-    .btn-outline:hover {
-      background: var(--crimson);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .hero-scroll-hint {
-      position: absolute; bottom: 36px; left: 6%;
-      display: flex; align-items: center; gap: 12px;
-      font-size: 0.6rem;
-      font-weight: 500;
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo-icon { width: 26px; height: 26px; color: var(--gold); }
+    .nav-logo-name {
+      font-family: var(--font-s);
+      font-size: 1.05rem; font-weight: 500;
       letter-spacing: 0.22em;
+      color: var(--white);
+      transition: color 0.4s;
+    }
+    #nav.scrolled .nav-logo-name { color: var(--black); }
+    .nav-logo-sub {
+      display: block;
+      font-size: 0.55rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      margin-top: -2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 44px; list-style: none; }
+    .nav-links a {
+      font-size: 0.7rem; letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--mid);
-      opacity: 0;
-      transition: opacity 0.6s 1.6s;
+      color: rgba(255,255,255,0.75);
+      position: relative; transition: color 0.3s;
     }
-    body.loaded .hero-scroll-hint { opacity: 0.6; }
-    .scroll-line {
-      width: 40px; height: 1px;
-      background: var(--gold);
-      animation: scrollLine 2s ease-in-out 2s infinite;
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--gold);
+      transition: width 0.3s ease;
     }
-    @keyframes scrollLine {
-      0%, 100% { width: 40px; opacity: 0.6; }
-      50%       { width: 70px; opacity: 1; }
-    }
-
-    /* Right panel — photo */
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-      background: var(--cream-dark);
-    }
-
-    .hero-photo-wrap {
-      position: absolute; inset: 0;
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 1.3s var(--ease-lux) 0.2s;
-    }
-    body.loaded .hero-photo-wrap { clip-path: inset(0 0 0% 0); }
-
-    .hero-photo {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 12%;
-      transform: scale(1.08);
-      transition: transform 6s ease-out 0.5s;
-    }
-    body.loaded .hero-photo { transform: scale(1); }
-
-    .hero-photo-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(248,243,238,0.35) 0%,
-        transparent 30%
-      ),
-      linear-gradient(
-        to top,
-        rgba(248,243,238,0.2) 0%,
-        transparent 40%
-      );
-    }
-
-    /* Floating tag on photo */
-    .hero-tag {
-      position: absolute;
-      bottom: 40px; right: 40px;
-      background: var(--white);
-      padding: 18px 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s var(--ease-lux) 1.4s, transform 0.7s var(--ease-lux) 1.4s;
-    }
-    body.loaded .hero-tag { opacity: 1; transform: translateY(0); }
-    .hero-tag-line1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.4rem;
-      color: var(--crimson);
-      line-height: 1.2;
-    }
-    .hero-tag-line2 {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    #nav.scrolled .nav-links a { color: var(--text-mid); }
+    .nav-cta {
+      font-size: 0.65rem; letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 4px;
+      padding: 10px 28px;
+      border: 1px solid var(--gold); color: var(--gold);
+      transition: all 0.3s; font-family: var(--font-b);
     }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
 
-    /* Gold accent decoration */
-    .hero-rose-accent {
-      position: absolute;
-      top: 50px; left: -20px;
-      width: 120px; height: 120px;
-      opacity: 0.08;
-      animation: floatRose 8s ease-in-out infinite;
-    }
-    @keyframes floatRose {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50%       { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    /* ═══════════════════════════════════════════
-       MARQUEE STRIP
-    ═══════════════════════════════════════════ */
-    .marquee-section {
-      background: var(--crimson);
-      padding: 18px 0;
-      overflow: hidden;
-    }
-    .marquee-track {
-      display: flex;
-      animation: marqueeScroll 22s linear infinite;
-      width: max-content;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      display: flex; align-items: center; gap: 24px;
-      padding: 0 24px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      white-space: nowrap;
-    }
-    .marquee-dot {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--gold-light);
-      flex-shrink: 0;
-    }
-
-    /* ═══════════════════════════════════════════
-       SECTION UTILITIES
-    ═══════════════════════════════════════════ */
-    .section-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .section-eyebrow::before {
-      content: '';
-      width: 30px; height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 600;
-      line-height: 1.15;
-      color: var(--charcoal);
-    }
-    .section-title em { font-style: italic; color: var(--crimson); }
-
-    .section-body {
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.85;
-      max-width: 560px;
-    }
-
-    /* ═══════════════════════════════════════════
-       ABOUT
-    ═══════════════════════════════════════════ */
-    .about-section {
-      position: relative;
+    /* ─── HERO ─── */
+    .hero {
       min-height: 100vh;
-      overflow: hidden;
-      background: var(--cream);
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--black);
+      position: relative; overflow: hidden;
     }
-
-    .about-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 115%;
-      top: -7.5%;
-      object-fit: cover;
-      object-position: center 15%;
-      will-change: transform;
-    }
-
-    .about-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to bottom,
-        var(--cream) 0%,
-        var(--cream) 6%,
-        rgba(248,243,238,0.25) 18%,
-        rgba(248,243,238,0) 30%,
-        rgba(248,243,238,0) 60%,
-        rgba(248,243,238,0.3) 72%,
-        var(--cream) 84%,
-        var(--cream) 100%
-      );
-    }
-
-    .about-inner {
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 160px 80px 80px 80px;
       position: relative; z-index: 2;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      padding: 60px 7% 70px;
     }
-
-    .about-top { max-width: 520px; }
-    .about-bottom { max-width: 680px; align-self: flex-end; text-align: right; }
-
-    .about-bottom .section-body { margin-left: auto; text-align: left; }
-    .about-bottom .section-eyebrow { justify-content: flex-end; flex-direction: row-reverse; }
-    .about-bottom .section-eyebrow::before { display: none; }
-    .about-bottom .section-eyebrow::after {
-      content: '';
-      width: 30px; height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
+    .hero-eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0; visibility: hidden;
     }
-
-    /* ═══════════════════════════════════════════
-       STATS
-    ═══════════════════════════════════════════ */
-    .stats-section {
-      background: var(--white);
-      padding: 80px 5%;
-      border-top: 1px solid rgba(196,153,61,0.15);
-      border-bottom: 1px solid rgba(196,153,61,0.15);
+    .hero-divider {
+      width: 56px; height: 1px; background: var(--gold);
+      margin-bottom: 36px;
+      opacity: 0; visibility: hidden; transform-origin: left;
     }
-    .stats-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+    .hero-title {
+      font-family: var(--font-s); font-weight: 300;
+      line-height: 0.88; margin-bottom: 36px;
     }
-    .stat-item {
-      text-align: center;
-      padding: 20px;
-      border-right: 1px solid rgba(196,153,61,0.18);
+    .hero-luxury {
+      display: block;
+      font-size: clamp(4.5rem, 8.5vw, 9rem);
+      letter-spacing: 0.16em; color: var(--gold);
+      opacity: 0; visibility: hidden;
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.8rem);
-      font-weight: 700;
-      color: var(--crimson);
-      line-height: 1;
-      margin-bottom: 8px;
+    .hero-by {
+      display: block;
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      letter-spacing: 0.35em; color: var(--white);
+      opacity: 0; visibility: hidden;
     }
-    .stat-label {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+    .hero-limited {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 44px;
+      opacity: 0; visibility: hidden;
+    }
+    .hero-limited-line { width: 36px; height: 1px; background: var(--gold); }
+    .hero-limited-text {
+      font-size: 0.58rem; letter-spacing: 0.42em;
+      text-transform: uppercase; color: var(--gold-lt);
+    }
+    .hero-tagline {
+      font-size: 0.8rem; letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--mid);
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 52px;
+      opacity: 0; visibility: hidden;
     }
-    .stat-icon {
-      width: 28px; height: 28px;
-      margin: 0 auto 12px;
-      color: var(--gold);
-    }
-
-    /* ═══════════════════════════════════════════
-       SERVICES
-    ═══════════════════════════════════════════ */
-    .services-section {
-      background: var(--cream);
-      padding: 120px 5%;
-    }
-    .services-header {
-      max-width: 700px;
-      margin: 0 auto 80px;
-      text-align: center;
-    }
-    .services-header .section-eyebrow { justify-content: center; }
-    .services-header .section-eyebrow::before { display: none; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .service-card {
-      background: var(--white);
-      padding: 48px 36px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s var(--ease-lux), box-shadow 0.4s var(--ease-lux);
-      cursor: default;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      height: 3px; width: 0;
-      background: var(--crimson);
-      transition: width 0.5s var(--ease-lux);
-    }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(122,16,16,0.1); }
-    .service-card:hover::before { width: 100%; }
-
-    .service-icon {
-      width: 52px; height: 52px;
-      background: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px;
-      transition: background 0.3s;
-    }
-    .service-card:hover .service-icon { background: rgba(122,16,16,0.06); }
-    .service-icon svg { width: 24px; height: 24px; color: var(--crimson); }
-
-    .service-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-    .service-desc {
-      font-size: 0.84rem;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-    .service-num {
-      position: absolute; top: 32px; right: 32px;
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: rgba(196,153,61,0.08);
-      line-height: 1;
-    }
-
-    /* ═══════════════════════════════════════════
-       MARKETS (Areas)
-    ═══════════════════════════════════════════ */
-    .markets-section {
-      background: var(--white);
-      padding: 120px 5%;
-    }
-    .markets-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 60px;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .markets-header-left { max-width: 500px; }
-
-    .markets-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .market-card {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .market-card img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s var(--ease-lux);
-    }
-    .market-card:hover img { transform: scale(1.08); }
-    .market-card::after {
-      content: '';
-      position: absolute; inset: 8px;
-      border: 1px solid rgba(255,255,255,0);
-      transition: border-color 0.5s var(--ease-lux);
-      pointer-events: none; z-index: 2;
-    }
-    .market-card:hover::after { border-color: rgba(255,255,255,0.4); }
-    .market-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(30,10,10,0.85) 0%, rgba(30,10,10,0.15) 60%, transparent 100%);
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px 24px;
-      transition: background 0.4s;
-      z-index: 1;
-    }
-    .market-card:hover .market-overlay {
-      background: linear-gradient(to top, rgba(90,12,12,0.9) 0%, rgba(30,10,10,0.3) 60%, transparent 100%);
-    }
-    .market-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 6px;
-    }
-    .market-sub {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .market-card-large {
-      grid-column: span 2;
-      height: 400px;
-    }
-
-    /* ═══════════════════════════════════════════
-       PHILOSOPHY
-    ═══════════════════════════════════════════ */
-    .philosophy-section {
-      background: var(--crimson-deep);
-      padding: 140px 5%;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .philosophy-section::before {
-      content: '';
-      position: absolute;
-      top: -60px; left: 50%; transform: translateX(-50%);
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(196,153,61,0.08) 0%, transparent 70%);
-    }
-    .philosophy-rose {
-      position: absolute;
-      right: -60px; bottom: -60px;
-      width: 400px; height: 400px;
-      opacity: 0.04;
-    }
-    .philosophy-rose-left {
-      position: absolute;
-      left: -80px; top: -40px;
-      width: 350px; height: 350px;
-      opacity: 0.04;
-      transform: rotate(180deg);
-    }
-
-    .philosophy-label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 32px;
-    }
-    .philosophy-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.6rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--white);
-      max-width: 860px;
-      margin: 0 auto 40px;
-      line-height: 1.55;
-    }
-    .philosophy-quote em {
-      font-style: normal;
-      color: var(--gold-light);
-    }
-    .philosophy-divider {
-      width: 60px; height: 1px;
-      background: var(--gold-light);
-      margin: 0 auto 28px;
-    }
-    .philosophy-author {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.9rem;
-      color: var(--gold-light);
-    }
-    .philosophy-cta {
-      margin-top: 52px;
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      flex-wrap: wrap;
+    .hero-ctas {
+      display: flex; gap: 28px; align-items: center;
+      opacity: 0; visibility: hidden;
     }
     .btn-gold {
-      background: var(--gold);
-      color: var(--white);
-      border: none;
-      padding: 15px 32px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-block;
+      padding: 14px 38px;
+      background: var(--gold); color: var(--black);
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; font-family: var(--font-b);
+      transition: all 0.3s ease; display: inline-block;
+    }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-outline {
+      font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.3);
+      font-family: var(--font-b); transition: all 0.3s;
+    }
+    .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 44px; left: 80px;
+      display: flex; align-items: center; gap: 14px;
+      opacity: 0; visibility: hidden;
+    }
+    .hero-scroll-label {
+      font-size: 0.58rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: rgba(255,255,255,0.28);
+    }
+    .hero-scroll-track {
+      width: 44px; height: 1px; background: rgba(201,168,76,0.25);
       position: relative; overflow: hidden;
-      transition: background 0.25s, transform 0.25s;
     }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-white-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.4);
-      padding: 14px 30px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-block;
-      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    .hero-scroll-track::after {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%; background: var(--gold);
+      animation: scroll-pulse 2.2s ease-in-out infinite;
     }
-    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+    @keyframes scroll-pulse { 0%{left:-100%} 50%{left:0} 100%{left:100%} }
 
-    /* ═══════════════════════════════════════════
-       CONTACT
-    ═══════════════════════════════════════════ */
-    .contact-section {
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .hero-right::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--black) 0%, rgba(26,14,4,0.2) 45%, transparent 100%);
+    }
+    .hero-caption {
+      position: absolute; bottom: 44px; right: 36px;
+      font-size: 0.52rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(255,255,255,0.28);
+      writing-mode: vertical-rl; z-index: 3;
+    }
+    .hero-rose-bg {
+      position: absolute; bottom: 60px; left: 60px;
+      width: 200px; opacity: 0.05;
+      color: var(--gold); z-index: 1; pointer-events: none;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee { background: var(--gold); padding: 15px 0; overflow: hidden; }
+    .marquee-track {
+      display: flex; white-space: nowrap;
+      animation: marquee-scroll 28s linear infinite;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 28px;
+      padding: 0 28px;
+      font-size: 0.62rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--black); font-weight: 500;
+    }
+    .marquee-sep { width: 5px; height: 5px; background: rgba(26,14,4,0.35); border-radius: 50%; flex-shrink: 0; }
+    @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    /* ─── SHARED ─── */
+    .s-label {
+      font-size: 0.58rem; letter-spacing: 0.42em;
+      text-transform: uppercase; color: var(--gold);
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 22px;
+    }
+    .s-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .s-title {
+      font-family: var(--font-s); font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 300; line-height: 1.1; color: var(--black); margin-bottom: 22px;
+    }
+    .s-title em { font-style: italic; color: var(--gold-dk); }
+    .s-body { font-size: 0.92rem; line-height: 1.85; color: var(--text-mid); max-width: 500px; }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 140px 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 96px; align-items: center;
+      background: var(--white);
+    }
+    .about-photo-wrap {
+      position: relative; aspect-ratio: 3/4; overflow: hidden;
+    }
+    .about-photo {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .about-photo-frame {
+      position: absolute; inset: 18px;
+      border: 1px solid rgba(201,168,76,0.28);
+      pointer-events: none; z-index: 2;
+    }
+    .about-badge {
+      position: absolute; bottom: -22px; right: -22px;
+      background: var(--black); padding: 22px 30px; z-index: 3;
+    }
+    .about-badge-num {
+      font-family: var(--font-s); font-size: 2.4rem; font-weight: 300;
+      color: var(--gold); line-height: 1; display: block;
+    }
+    .about-badge-text {
+      font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+    }
+    .about-content { padding-left: 16px; }
+    .about-tags {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 44px;
+    }
+    .about-tag {
+      font-size: 0.58rem; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 8px 18px;
+      border: 1px solid rgba(201,168,76,0.35); color: var(--gold-dk);
+    }
+
+    /* ─── STATS ─── */
+    .stats {
+      padding: 100px 80px;
       background: var(--cream);
-      padding: 120px 5%;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 24px; position: relative;
     }
-    .contact-header { text-align: center; margin-bottom: 80px; }
-    .contact-header .section-eyebrow { justify-content: center; }
-    .contact-header .section-eyebrow::before { display: none; }
+    .stats::before, .stats::after {
+      content: ''; position: absolute;
+      left: 80px; right: 80px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .stats::before { top: 0; }
+    .stats::after { bottom: 0; }
+    .stat {
+      text-align: center; padding: 32px 16px;
+      position: relative;
+    }
+    .stat + .stat::before {
+      content: ''; position: absolute;
+      left: 0; top: 20%; height: 60%;
+      width: 1px; background: rgba(201,168,76,0.18);
+    }
+    .stat-num {
+      font-family: var(--font-s); font-size: clamp(2.8rem,4.5vw,4rem);
+      font-weight: 300; color: var(--gold); line-height: 1;
+      display: block; margin-bottom: 10px;
+    }
+    .stat-lbl {
+      font-size: 0.62rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--text-mid);
+    }
 
-    .contact-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 80px;
+    /* ─── SERVICES ─── */
+    .services { padding: 140px 80px; background: var(--white); }
+    .services-hdr {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; margin-bottom: 72px; align-items: end;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 3px;
+    }
+    .svc-card {
+      padding: 44px 36px; background: var(--cream);
+      position: relative; overflow: hidden;
+      transition: background 0.4s, transform 0.4s;
+    }
+    .svc-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-card:hover { background: var(--cream-dk); transform: translateY(-3px); }
+    .svc-num {
+      font-family: var(--font-s); font-size: 0.68rem; color: var(--gold);
+      letter-spacing: 0.22em; margin-bottom: 28px; display: block;
+    }
+    .svc-icon { width: 36px; height: 36px; color: var(--gold); margin-bottom: 20px; }
+    .svc-name {
+      font-family: var(--font-s); font-size: 1.45rem; font-weight: 400;
+      color: var(--black); margin-bottom: 12px; line-height: 1.2;
+    }
+    .svc-desc { font-size: 0.82rem; line-height: 1.78; color: var(--text-mid); }
+
+    /* ─── MARKETS ─── */
+    .markets { padding: 140px 80px; background: var(--black); }
+    .markets-hdr { margin-bottom: 72px; }
+    .markets-hdr .s-title { color: var(--white); }
+    .markets-hdr .s-label { color: var(--gold-lt); }
+    .markets-hdr .s-label::before { background: var(--gold-lt); }
+    .markets-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+    }
+    .mkt-card {
+      aspect-ratio: 3/4; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.1);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 28px 24px; position: relative; overflow: hidden;
+      cursor: pointer; transition: border-color 0.4s;
+    }
+    .mkt-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--gold); opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .mkt-card:hover { border-color: rgba(201,168,76,0.4); }
+    .mkt-card:hover::before { opacity: 0.06; }
+    .mkt-roman {
+      font-family: var(--font-s); font-size: 1.8rem;
+      color: rgba(201,168,76,0.15);
+      position: absolute; top: 20px; right: 20px;
+    }
+    .mkt-name {
+      font-family: var(--font-s); font-size: 1.2rem; font-weight: 400;
+      color: var(--white); margin-bottom: 6px; position: relative; z-index: 2;
+    }
+    .mkt-type {
+      font-size: 0.58rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--gold);
+      position: relative; z-index: 2;
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy {
+      padding: 140px 80px; background: var(--cream);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .phil-rose {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0.045; pointer-events: none;
+    }
+    .phil-rose svg { width: 420px; color: var(--gold); }
+    .phil-quote {
+      font-family: var(--font-s); font-size: clamp(1.8rem,3.5vw,3.2rem);
+      font-weight: 300; font-style: italic; color: var(--black);
+      line-height: 1.45; max-width: 860px; margin: 0 auto 44px;
+      position: relative; z-index: 2;
+    }
+    .phil-quote::before {
+      content: '\201C';
+      font-size: 7rem; color: var(--gold-pale); line-height: 1;
+      position: absolute; top: -30px; left: -30px;
+      font-family: var(--font-s); z-index: -1;
+    }
+    .phil-attr {
+      font-size: 0.68rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--text-mid);
+      position: relative; z-index: 2;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      padding: 140px 80px; background: var(--white);
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: 112px;
       align-items: start;
     }
-
-    .contact-left { display: flex; flex-direction: column; align-items: center; text-align: center; }
-
-    .contact-portrait {
-      width: 280px; height: 360px;
-      object-fit: cover;
-      object-position: center 10%;
-      position: relative;
-      box-shadow: 0 30px 80px rgba(122,16,16,0.15);
+    .contact-socials { margin-top: 52px; display: flex; flex-direction: column; gap: 0; }
+    .contact-link {
+      display: flex; align-items: center; gap: 18px;
+      padding: 16px 0; border-bottom: 1px solid rgba(201,168,76,0.14);
+      transition: padding-left 0.3s ease;
     }
-    .contact-portrait-wrap {
-      position: relative;
-      margin-bottom: 36px;
-    }
-    .contact-portrait-wrap::before {
-      content: '';
-      position: absolute;
-      top: -12px; left: -12px; right: 12px; bottom: 12px;
-      border: 1px solid rgba(196,153,61,0.35);
-      z-index: 0;
-    }
-    .contact-portrait { position: relative; z-index: 1; }
-
-    .contact-signature {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.4rem;
-      color: var(--crimson);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .contact-title-label {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .contact-social {
-      display: flex; gap: 14px; flex-wrap: wrap;
-      margin-top: 28px;
-      justify-content: center;
-    }
-    .social-btn {
-      width: 50px; height: 50px;
-      border-radius: 50%;
+    .contact-link:hover { padding-left: 8px; }
+    .contact-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border: 1px solid rgba(201,168,76,0.28);
       display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      transition: transform 0.25s, box-shadow 0.25s;
+      color: var(--gold); transition: all 0.3s;
     }
-    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-    .social-btn svg { width: 20px; height: 20px; }
-    .sb-phone    { background: #34C759; color: #fff; }
-    .sb-email    { background: #007AFF; color: #fff; }
-    .sb-whatsapp { background: #25D366; color: #fff; }
-    .sb-ig       { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; }
+    .contact-link:hover .contact-icon { background: var(--gold); color: var(--black); }
+    .contact-link-lbl {
+      font-size: 0.62rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-mid);
+    }
+    .contact-link-val { font-size: 0.92rem; color: var(--text); }
+    .form-section-label { margin-bottom: 44px; }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;
+    }
+    .fg { margin-bottom: 24px; }
+    .fl {
+      display: block; margin-bottom: 8px;
+      font-size: 0.58rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold-dk);
+    }
+    .fi, .fsel, .fta {
+      width: 100%; padding: 13px 0;
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(201,168,76,0.22);
+      font-family: var(--font-b); font-size: 0.9rem;
+      color: var(--text); outline: none;
+      transition: border-color 0.3s;
+    }
+    .fi:focus, .fsel:focus, .fta:focus { border-color: var(--gold); }
+    .fta { resize: none; height: 90px; }
+    .fsel { appearance: none; cursor: pointer; }
+    .fsub {
+      width: 100%; padding: 17px;
+      background: var(--black); color: var(--gold);
+      font-family: var(--font-b); font-size: 0.68rem;
+      font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+      border: 1px solid var(--gold); cursor: pointer;
+      transition: all 0.4s ease; margin-top: 12px;
+    }
+    .fsub:hover { background: var(--gold); color: var(--black); }
 
-    .social-label {
-      font-size: 0.55rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-top: 5px;
-    }
-    .social-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-
-    /* Form */
-    .contact-form-wrap {
-      background: var(--white);
-      padding: 52px 48px;
-      box-shadow: 0 8px 60px rgba(122,16,16,0.06);
-    }
-    .form-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 6px;
-    }
-    .form-title em { font-style: italic; color: var(--crimson); }
-    .form-sub {
-      font-size: 0.78rem;
-      color: var(--mid);
-      font-weight: 300;
-      margin-bottom: 36px;
-    }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
-      display: block;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      margin-bottom: 8px;
-    }
-    .form-group label .req { color: var(--gold); margin-left: 2px; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: var(--cream);
-      border: 1px solid rgba(196,153,61,0.2);
-      border-bottom: 2px solid rgba(196,153,61,0.3);
-      color: var(--charcoal);
-      padding: 12px 16px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.84rem;
-      font-weight: 300;
-      outline: none;
-      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
-      appearance: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--crimson);
-      border-bottom-color: var(--crimson);
-      background: var(--white);
-      box-shadow: 0 4px 20px rgba(122,16,16,0.08);
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(74,64,64,0.35); }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .form-group select option { background: var(--white); }
-
-    .form-submit {
-      width: 100%;
-      background: var(--crimson);
-      color: var(--white);
-      border: none;
-      padding: 16px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin-top: 8px;
-      position: relative; overflow: hidden;
-      transition: background 0.25s;
-    }
-    .form-submit:hover { background: var(--crimson-deep); }
-    .form-submit::after {
-      content: '';
-      position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.2), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.6s var(--ease-lux);
-    }
-    .form-submit:hover::after { left: 160%; }
-    #form-status { margin-top: 12px; font-size: 0.8rem; text-align: center; display: none; }
-
-    /* ═══════════════════════════════════════════
-       CLOSING / SECOND CTA
-    ═══════════════════════════════════════════ */
-    .closing-section {
-      background: var(--charcoal);
-      padding: 100px 5%;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .closing-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(122,16,16,0.18) 0%, transparent 50%, rgba(196,153,61,0.06) 100%);
-    }
-    .closing-inner { position: relative; z-index: 1; }
-    .closing-eyebrow {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 24px;
-    }
-    .closing-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .closing-title em { font-style: italic; color: var(--gold-light); }
-    .closing-sub {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      max-width: 520px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-    }
-    .closing-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-    /* ═══════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════ */
+    /* ─── FOOTER ─── */
     footer {
-      background: var(--white);
-      padding: 50px 5% 30px;
-      border-top: 1px solid rgba(196,153,61,0.15);
+      background: var(--black); padding: 80px;
+      position: relative;
     }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
+    .ft-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(201,168,76,0.14);
+      margin-bottom: 44px;
     }
-    .footer-brand-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--crimson);
-      margin-bottom: 4px;
+    .ft-brand {
+      font-family: var(--font-s); font-style: italic;
+      font-size: 3.2rem; font-weight: 300; color: var(--gold);
     }
-    .footer-brand-sub {
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .footer-tagline {
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: var(--mid);
-      margin-top: 16px;
-      line-height: 1.6;
-    }
-    .footer-col-title {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 10px; }
-    .footer-links a {
-      font-size: 0.84rem;
-      font-weight: 300;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--crimson); }
-    .footer-contact-item {
-      font-size: 0.84rem;
-      font-weight: 300;
-      color: var(--mid);
-      margin-bottom: 8px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .footer-contact-item svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
-    .footer-contact-item a { color: var(--mid); transition: color 0.2s; }
-    .footer-contact-item a:hover { color: var(--crimson); }
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(196,153,61,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .footer-copy {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: rgba(74,64,64,0.5);
-    }
-    .footer-kw {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* ═══════════════════════════════════════════
-       LIGHTBOX
-    ═══════════════════════════════════════════ */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 999;
-      background: rgba(20,8,8,0.92);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.4s var(--ease-lux);
-      backdrop-filter: blur(4px);
-    }
-    .lightbox.open { opacity: 1; pointer-events: all; }
-    .lightbox img {
-      max-width: 80vw; max-height: 68vh;
-      object-fit: contain;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-      transform: scale(0.9);
-      transition: transform 0.5s var(--ease-lux);
-    }
-    .lightbox.open img { transform: scale(1); }
-    .lightbox-info { margin-top: 28px; text-align: center; }
-    .lightbox-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--white);
-      font-weight: 400;
-    }
-    .lightbox-sub-text {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-light);
+    .ft-brand-sub {
+      font-size: 0.58rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
       margin-top: 6px;
     }
-    .lightbox-cta {
-      margin-top: 28px;
-      background: var(--crimson);
-      color: var(--white);
-      border: none;
-      padding: 13px 34px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s;
+    .ft-links { display: flex; flex-direction: column; gap: 12px; }
+    .ft-links a {
+      font-size: 0.7rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      transition: color 0.3s;
     }
-    .lightbox-cta:hover { background: var(--crimson-deep); }
-    .lightbox-close {
-      position: absolute; top: 28px; right: 36px;
-      font-size: 1.8rem;
-      color: rgba(255,255,255,0.45);
-      cursor: pointer;
-      background: none; border: none;
-      line-height: 1;
-      transition: color 0.2s;
+    .ft-links a:hover { color: var(--gold); }
+    .ft-kw-text {
+      text-align: right;
+      font-size: 0.58rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.22);
+      line-height: 1.9;
     }
-    .lightbox-close:hover { color: var(--gold-light); }
-
-    /* ═══════════════════════════════════════════
-       SCROLL REVEAL ANIMATIONS
-    ═══════════════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(48px);
-      transition: opacity 0.8s var(--ease-lux), transform 0.8s var(--ease-lux);
+    .ft-bottom {
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-48px);
-      transition: opacity 0.8s var(--ease-lux), transform 0.8s var(--ease-lux);
+    .ft-copy {
+      font-size: 0.62rem; color: rgba(255,255,255,0.18); letter-spacing: 0.1em;
     }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(48px);
-      transition: opacity 0.8s var(--ease-lux), transform 0.8s var(--ease-lux);
-    }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-    .reveal-clip {
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 0.9s var(--ease-lux);
-    }
-    .reveal-clip.visible { clip-path: inset(0 0 0% 0); }
-
-    .stagger-child {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.7s var(--ease-lux), transform 0.7s var(--ease-lux);
-    }
-    .stagger-child.visible { opacity: 1; transform: translateY(0); }
-
-    /* Word split reveal */
-    .split-reveal .word {
-      display: inline-block;
-      overflow: hidden;
-    }
-    .split-reveal .word-inner {
-      display: inline-block;
-      transform: translateY(110%);
-      transition: transform 0.8s var(--ease-lux);
-    }
-    .split-reveal.visible .word-inner { transform: translateY(0); }
-
-    /* ═══════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .markets-grid { grid-template-columns: repeat(2, 1fr); }
-      .market-card-large { grid-column: span 1; height: 300px; }
+    .ft-strip {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
     }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; min-height: 100dvh; }
-      .hero-left {
-        padding: 110px 6% 60px;
-        min-height: 60vh;
-        justify-content: flex-end;
-      }
-      .hero-right { height: 55vh; min-height: 400px; }
-      .hero-tag { bottom: 20px; right: 20px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 60px; }
-      .contact-form-wrap { padding: 36px 28px; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .about-inner { padding: 50px 6%; }
-      .about-bottom { align-self: flex-end; text-align: left; }
-      .about-bottom .section-eyebrow { justify-content: flex-start; flex-direction: row; }
-      .about-bottom .section-eyebrow::before { display: block; }
-      .about-bottom .section-eyebrow::after { display: none; }
-    }
+    /* ─── ANIM STATES ─── */
+    .rv-fade { opacity: 0; transform: translateY(36px); }
+    .rv-line { overflow: hidden; }
+    .rv-line-inner { display: block; transform: translateY(105%); }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 5%; height: 70px; }
-      nav.scrolled { height: 60px; }
+    /* ─── MOBILE ─── */
+    @media (max-width: 960px) {
+      #nav { padding: 20px 28px; }
+      #nav.scrolled { padding: 14px 28px; }
       .nav-links { display: none; }
-      .nav-burger { display: flex; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 120px 28px 80px; }
+      .hero-right { position: absolute; inset: 0; opacity: 0.2; }
+      .hero-right::after { background: linear-gradient(to top, var(--black) 40%, transparent); }
+      .about { grid-template-columns: 1fr; gap: 60px; padding: 80px 28px; }
+      .about-content { padding-left: 0; }
+      .stats { grid-template-columns: repeat(2,1fr); padding: 80px 28px; }
+      .services { padding: 80px 28px; }
+      .services-hdr { grid-template-columns: 1fr; gap: 28px; }
       .services-grid { grid-template-columns: 1fr; }
-      .markets-grid { grid-template-columns: 1fr; }
-      .market-card { height: 250px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); }
-      .stat-item { border-bottom: 1px solid rgba(196,153,61,0.12); }
-      .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid rgba(196,153,61,0.12); }
-      .stat-item:nth-child(2) { border-right: none; }
-      .stat-item:nth-child(3) { border-bottom: none; }
-      .stat-item:nth-child(4) { border-right: none; border-bottom: none; }
+      .markets { padding: 80px 28px; }
+      .markets-grid { grid-template-columns: repeat(2,1fr); }
+      .philosophy { padding: 80px 28px; }
+      .contact { grid-template-columns: 1fr; gap: 56px; padding: 80px 28px; }
+      footer { padding: 56px 28px; }
+      .ft-top { flex-direction: column; gap: 44px; }
+      .ft-kw-text { text-align: left; }
       .form-row { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-h1 { font-size: 2.4rem; }
-      .hero-tag { display: none; }
-    }
-
-    /* ═══════════════════════════════════════════
-       REDUCED MOTION
-    ═══════════════════════════════════════════ */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        transition-duration: 0.001ms !important;
-      }
-      .reveal, .reveal-left, .reveal-right, .stagger-child,
-      .reveal-clip, .split-reveal .word-inner {
-        opacity: 1 !important;
-        transform: none !important;
-        clip-path: none !important;
-      }
-      nav { transform: none !important; }
-      body.loaded .hero-photo-wrap { clip-path: none !important; }
-      .hero-eyebrow, .hero-sub, .hero-btns, .hero-tag,
-      .hero-scroll-hint { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── PRELOADER ─────────────────────────────── -->
+<!-- PRELOADER -->
 <div id="preloader">
-  <div class="preloader-inner">
-    <svg class="preloader-logo" viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M30 75V52L50 32L70 52V75H55V60H45V75H30Z" stroke="#C4993D" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
-      <path d="M62 36C62 30 67 25 72 28C77 25 82 30 82 36C82 44 72 50 72 50C72 50 62 44 62 36Z" stroke="#C4993D" stroke-width="2" fill="none"/>
-    </svg>
-    <div class="preloader-text">Luxury by Fab</div>
-    <div class="preloader-line"></div>
-  </div>
+  <div class="pl-brand">Luxury by Fab</div>
+  <div class="pl-line" id="plLine"></div>
 </div>
 
-<!-- ─── SCROLL PROGRESS ───────────────────────── -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- ─── NAV ──────────────────────────────────── -->
-<nav id="mainNav" class="hero-zone">
-  <a href="#home" class="nav-logo">
-    <svg class="nav-logo-icon" viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M28 76V51L50 30L72 51V76H56V60H44V76H28Z" stroke="#7A1010" stroke-width="3" fill="none" stroke-linejoin="round"/>
-      <path d="M60 35C60 29 65.5 24.5 71 27.5C76.5 24.5 82 29 82 35C82 43.5 71 50 71 50C71 50 60 43.5 60 35Z" stroke="#C4993D" stroke-width="2.5" fill="none"/>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+      <circle cx="8" cy="8" r="5"/>
+      <line x1="13" y1="8" x2="21" y2="8"/>
+      <line x1="17" y1="6" x2="17" y2="10"/>
     </svg>
     <div>
-      <div class="nav-brand-name">Luxury by Fab</div>
-      <span class="nav-brand-sub">Keller Williams · Palm Beach</span>
+      <span class="nav-logo-name">Luxury by Fab</span>
+      <span class="nav-logo-sub">KW Palm Beach</span>
     </div>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#markets">Markets</a></li>
-    <li><a href="#contact" class="nav-cta">Private Consultation</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-burger" id="navBurger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-cta">Connect</a>
 </nav>
 
-<!-- ─── MOBILE NAV ────────────────────────────── -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
-  <a href="#about"    onclick="closeMobileNav()">About</a>
-  <a href="#services" onclick="closeMobileNav()">Services</a>
-  <a href="#markets"  onclick="closeMobileNav()">Markets</a>
-  <a href="#contact"  onclick="closeMobileNav()">Contact</a>
-</div>
-
-<!-- ─── HERO ──────────────────────────────────── -->
-<section class="hero" id="home">
-  <!-- Left text panel -->
-  <div class="hero-left">
-    <!-- Rose accent -->
-    <svg class="hero-rose-accent" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 170C100 170 40 140 40 90C40 60 60 40 100 40C140 40 160 60 160 90C160 140 100 170 100 170Z" stroke="#C4993D" stroke-width="1.5" fill="none"/>
-      <path d="M100 40C100 40 80 60 80 90C80 120 100 140 100 140C100 140 120 120 120 90C120 60 100 40 100 40Z" stroke="#C4993D" stroke-width="1.5" fill="none"/>
-      <path d="M100 170L100 200" stroke="#C4993D" stroke-width="1.5"/>
-      <path d="M85 185C85 185 90 178 100 178C110 178 115 185 115 185" stroke="#C4993D" stroke-width="1.5" fill="none"/>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-rose-bg">
+    <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 10C44 10 24 26 24 50C24 74 44 90 60 90C76 90 96 74 96 50C96 26 76 10 60 10Z" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 22C48 22 32 36 32 52C32 68 48 78 60 78C72 78 88 68 88 52C88 36 72 22 60 22Z" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 10C54 22 52 36 60 46C68 36 66 22 60 10Z" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 10C44 17 34 30 38 46" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 10C76 17 86 30 82 46" stroke="currentColor" stroke-width="0.6"/>
+      <line x1="60" y1="90" x2="60" y2="132" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 106C50 94 32 98 36 114C46 118 56 112 60 106Z" stroke="currentColor" stroke-width="0.6"/>
+      <path d="M60 116C70 104 88 108 84 124C74 128 64 122 60 116Z" stroke="currentColor" stroke-width="0.6"/>
     </svg>
+  </div>
 
-    <p class="hero-eyebrow">Keller Williams Luxury · Palm Beach · South Florida</p>
-
-    <h1 class="hero-h1">
-      <span class="line"><span class="line-inner">Luxury</span></span>
-      <span class="line"><span class="line-inner">Real <em>Estate</em></span></span>
-      <span class="line"><span class="line-inner">with Heart.</span></span>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Palm Beach Island · Keller Williams Luxury</div>
+    <div class="hero-divider" id="heroDivider"></div>
+    <h1 class="hero-title">
+      <span class="hero-luxury">LUXURY</span>
+      <span class="hero-by">BY FAB</span>
     </h1>
-
-    <div class="hero-divider"></div>
-
-    <p class="hero-sub">
-      With over 25 years of experience and an unwavering commitment to elegance, I guide clients through South Florida's most exclusive residential markets — discreetly, dedicatedly, exceptionally.
-    </p>
-
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8"/></svg>
-        Book a Consultation
-      </a>
-      <a href="#about" class="btn-outline">Meet Fabiola</a>
+    <div class="hero-limited">
+      <div class="hero-limited-line"></div>
+      <span class="hero-limited-text">Elevated · Exclusive · Limited</span>
+      <div class="hero-limited-line"></div>
     </div>
-
-    <div class="hero-scroll-hint">
-      <span class="scroll-line"></span>
-      Scroll to explore
+    <p class="hero-tagline">Discreet · Dedicated · Exceptional Results</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-gold">Begin Your Journey</a>
+      <a href="#about" class="btn-outline">Discover More</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-label">Scroll</span>
+      <div class="hero-scroll-track"></div>
     </div>
   </div>
 
-  <!-- Right photo panel -->
   <div class="hero-right">
-    <div class="hero-photo-wrap">
-      <img src="2.jpeg" alt="Fabiola Acevedo — Luxury Real Estate Advisor" class="hero-photo" />
-      <div class="hero-photo-overlay"></div>
+    <img src="2.jpeg" alt="Fabiola Acevedo P.A." class="hero-img" id="heroImg">
+    <div class="hero-caption">Fabiola Acevedo P.A. · 25+ Years of Excellence</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Luxury Buying<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Luxury Selling<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Investment Strategy<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Pre-Construction<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Palm Beach<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Fort Lauderdale<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Miami<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Boca Raton<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Luxury Buying<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Luxury Selling<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Investment Strategy<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Pre-Construction<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Palm Beach<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Fort Lauderdale<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Miami<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Boca Raton<span class="marquee-sep"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-photo-wrap">
+    <img src="WhatsApp%20Image%202026-06-20%20at%2019.26.17.jpeg"
+         alt="Fabiola Acevedo" class="about-photo" id="aboutPhoto">
+    <div class="about-photo-frame"></div>
+    <div class="about-badge">
+      <span class="about-badge-num">25<small style="font-size:1.1rem">+</small></span>
+      <span class="about-badge-text">Years of Excellence</span>
     </div>
-    <!-- Floating tag -->
-    <div class="hero-tag">
-      <div class="hero-tag-line1">Fabiola Acevedo</div>
-      <div class="hero-tag-line2">Real Estate Advisor · P.A.</div>
+  </div>
+
+  <div class="about-content">
+    <div class="s-label rv-fade">About Fabiola</div>
+    <h2 class="s-title">
+      <span class="rv-line"><span class="rv-line-inner">Your Trusted</span></span>
+      <span class="rv-line"><span class="rv-line-inner"><em>Luxury Advisor</em></span></span>
+      <span class="rv-line"><span class="rv-line-inner">in South Florida</span></span>
+    </h2>
+    <p class="s-body rv-fade" style="margin-bottom:20px">
+      With over 25 years navigating South Florida's most exclusive properties, Fabiola Acevedo P.A. has built a reputation for discretion, unwavering dedication, and consistently exceptional results.
+    </p>
+    <p class="s-body rv-fade">
+      Affiliated with Keller Williams Luxury — the world's most recognized luxury real estate brand — Fabiola brings unmatched market intelligence, a curated global network, and a deeply personal approach to every transaction.
+    </p>
+    <div class="about-tags">
+      <span class="about-tag rv-fade">KW Luxury Certified</span>
+      <span class="about-tag rv-fade">Top 1% Producer</span>
+      <span class="about-tag rv-fade">Palm Beach Specialist</span>
+      <span class="about-tag rv-fade">Pre-Construction Expert</span>
     </div>
   </div>
 </section>
 
-<!-- ─── MARQUEE STRIP ─────────────────────────── -->
-<div class="marquee-section">
-  <div class="marquee-track" aria-hidden="true">
-    <!-- Duplicated for seamless loop -->
-    <span class="marquee-item">Luxury Real Estate <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Palm Beach Island <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Exceptional Results <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Trusted Advisor <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Your Next Move, My Priority <span class="marquee-dot"></span></span>
-    <span class="marquee-item">25+ Years of Excellence <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Discreet · Dedicated <span class="marquee-dot"></span></span>
-    <span class="marquee-item">South Florida <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Luxury Real Estate <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Palm Beach Island <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Exceptional Results <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Trusted Advisor <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Your Next Move, My Priority <span class="marquee-dot"></span></span>
-    <span class="marquee-item">25+ Years of Excellence <span class="marquee-dot"></span></span>
-    <span class="marquee-item">Discreet · Dedicated <span class="marquee-dot"></span></span>
-    <span class="marquee-item">South Florida <span class="marquee-dot"></span></span>
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="stat">
+    <span class="stat-num" data-target="25" data-suffix="+">0</span>
+    <span class="stat-lbl">Years in Luxury Real Estate</span>
   </div>
-</div>
+  <div class="stat">
+    <span class="stat-num" data-target="500" data-suffix="+">0</span>
+    <span class="stat-lbl">Properties Closed</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="98" data-suffix="%">0</span>
+    <span class="stat-lbl">Client Satisfaction</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="12" data-suffix="+">0</span>
+    <span class="stat-lbl">Markets Served</span>
+  </div>
+</section>
 
-<!-- ─── ABOUT ─────────────────────────────────── -->
-<section class="about-section" id="about">
-  <img
-    src="WhatsApp%20Image%202026-06-20%20at%2019.26.17.jpeg"
-    alt="Fabiola Acevedo — Luxury Real Estate Advisor"
-    class="about-bg"
-    id="aboutBg"
-  />
-  <div class="about-overlay"></div>
-  <div class="about-inner">
-
-    <div class="about-top reveal">
-      <p class="section-eyebrow">Meet Fabiola</p>
-      <h2 class="section-title" style="max-width:480px;">
-        A Trusted Advisor in <em>Luxury</em>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-hdr">
+    <div>
+      <div class="s-label rv-fade">What We Offer</div>
+      <h2 class="s-title">
+        <span class="rv-line"><span class="rv-line-inner">Bespoke Real</span></span>
+        <span class="rv-line"><span class="rv-line-inner"><em>Estate Services</em></span></span>
       </h2>
     </div>
-
-    <div class="about-bottom reveal">
-      <p class="section-eyebrow" style="color:var(--gold);">Her Story</p>
-      <p class="section-body">
-        Fabiola Acevedo is a luxury real estate entrepreneur, investor, and community leader with more than 25 years of experience. As a proud member of <strong>Keller Williams Luxury</strong>, she brings unmatched market expertise and a global network. Originally from Chile and based in South Florida, she has built a distinguished career advising clients in the luxury residential market — blending business excellence with integrity, diversity, and conscious leadership.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── STATS ─────────────────────────────────── -->
-<div class="stats-section">
-  <div class="stats-inner">
-    <div class="stat-item stagger-child">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <div class="stat-num" data-target="25" data-suffix="+">0+</div>
-      <div class="stat-label">Years of Experience</div>
-    </div>
-    <div class="stat-item stagger-child">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-      <div class="stat-num" data-target="6" data-suffix="+">0+</div>
-      <div class="stat-label">Luxury Markets</div>
-    </div>
-    <div class="stat-item stagger-child">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-      <div class="stat-num" data-target="100" data-suffix="%">0%</div>
-      <div class="stat-label">Client Dedication</div>
-    </div>
-    <div class="stat-item stagger-child">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <div class="stat-num" data-target="5" data-suffix="★">0★</div>
-      <div class="stat-label">Service Excellence</div>
-    </div>
-  </div>
-</div>
-
-<!-- ─── SERVICES ──────────────────────────────── -->
-<section class="services-section" id="services">
-  <div class="services-header">
-    <p class="section-eyebrow" style="justify-content:center;">How I Can Help</p>
-    <h2 class="section-title reveal" style="text-align:center;">
-      Your Real Estate <em>Journey</em><br>Starts Here
-    </h2>
-    <p class="section-body reveal" style="text-align:center;margin:20px auto 0;max-width:500px;">
-      Whether you're buying, selling, or investing, I offer a white-glove experience tailored to your unique vision.
+    <p class="s-body rv-fade">
+      From oceanfront penthouses to private waterfront estates — every engagement is handled with the utmost care, confidentiality, and precision.
     </p>
   </div>
 
   <div class="services-grid">
-    <div class="service-card stagger-child">
-      <span class="service-num">01</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div class="service-title">Buy a Luxury Home</div>
-      <div class="service-desc">Access exclusive listings and off-market properties across South Florida's finest communities with complete discretion.</div>
+    <div class="svc-card">
+      <span class="svc-num">01</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <h3 class="svc-name">Luxury Buying</h3>
+      <p class="svc-desc">Expert guidance in acquiring South Florida's most prestigious properties, with access to off-market listings and discreet private sales.</p>
     </div>
-
-    <div class="service-card stagger-child">
-      <span class="service-num">02</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-      <div class="service-title">Sell Your Property</div>
-      <div class="service-desc">Strategic pricing, elite marketing, and a global network to maximize your sale value and minimize time on market.</div>
+    <div class="svc-card">
+      <span class="svc-num">02</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+        <polyline points="16 7 22 7 22 13"/>
+      </svg>
+      <h3 class="svc-name">Strategic Selling</h3>
+      <p class="svc-desc">Precision marketing strategies positioning your property to command premium prices, paired with a global network of qualified buyers.</p>
     </div>
-
-    <div class="service-card stagger-child">
-      <span class="service-num">03</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <div class="service-title">Pre-Construction</div>
-      <div class="service-desc">First access to South Florida's most sought-after new developments and pre-construction investment opportunities.</div>
+    <div class="svc-card">
+      <span class="svc-num">03</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <h3 class="svc-name">Investment Strategy</h3>
+      <p class="svc-desc">Data-driven insights and portfolio optimization for investors seeking to capitalize on South Florida's robust luxury market growth.</p>
     </div>
-
-    <div class="service-card stagger-child">
-      <span class="service-num">04</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-      </div>
-      <div class="service-title">Relocate to South Florida</div>
-      <div class="service-desc">A seamless transition into the South Florida lifestyle with concierge-level guidance from arrival to closing.</div>
+    <div class="svc-card">
+      <span class="svc-num">04</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+      <h3 class="svc-name">Pre-Construction</h3>
+      <p class="svc-desc">First access to South Florida's most anticipated luxury developments, securing allocations before they reach the open market.</p>
     </div>
-
-    <div class="service-card stagger-child">
-      <span class="service-num">05</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-      </div>
-      <div class="service-title">Real Estate Investment</div>
-      <div class="service-desc">Data-driven investment strategy in high-end markets with long-term value creation and portfolio guidance.</div>
+    <div class="svc-card">
+      <span class="svc-num">05</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <h3 class="svc-name">Market Intelligence</h3>
+      <p class="svc-desc">Comprehensive analysis of micro-market trends, neighborhood dynamics, and emerging luxury corridors across South Florida.</p>
     </div>
-
-    <div class="service-card stagger-child">
-      <span class="service-num">06</span>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-      </div>
-      <div class="service-title">Private Consultation</div>
-      <div class="service-desc">A confidential, one-on-one conversation about your real estate goals, timeline, and ideal lifestyle outcomes.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── MARKETS ───────────────────────────────── -->
-<section class="markets-section" id="markets">
-  <div class="markets-header">
-    <div class="markets-header-left">
-      <p class="section-eyebrow">Areas of Focus</p>
-      <h2 class="section-title reveal">Exclusive <em>Markets</em><br>We Serve</h2>
-    </div>
-    <p class="section-body reveal" style="max-width:340px;">
-      From Palm Beach Island to the vibrant streets of Miami, I bring unmatched local expertise to every luxury market in South Florida.
-    </p>
-  </div>
-
-  <div class="markets-grid">
-    <div class="market-card market-card-large stagger-child" data-area="Palm Beach Island" data-sub="Ultra-Luxury Estates">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=85&fit=crop" alt="Palm Beach Island" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Palm Beach Island</div>
-        <div class="market-sub">Ultra-Luxury Estates</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="West Palm Beach" data-sub="Waterfront Living">
-      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=85&fit=crop" alt="West Palm Beach" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">West Palm Beach</div>
-        <div class="market-sub">Waterfront Living</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="Miami" data-sub="World-Class City Living">
-      <img src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=800&q=85&fit=crop" alt="Miami" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Miami</div>
-        <div class="market-sub">World-Class City Living</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="Fort Lauderdale" data-sub="Yachting Capital">
-      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85&fit=crop" alt="Fort Lauderdale" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Fort Lauderdale</div>
-        <div class="market-sub">Yachting Capital</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="Boca Raton" data-sub="Prestigious Communities">
-      <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&q=85&fit=crop" alt="Boca Raton" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Boca Raton</div>
-        <div class="market-sub">Prestigious Communities</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="Delray Beach" data-sub="Coastal Elegance">
-      <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=800&q=85&fit=crop" alt="Delray Beach" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Delray Beach</div>
-        <div class="market-sub">Coastal Elegance</div>
-      </div>
-    </div>
-
-    <div class="market-card stagger-child" data-area="Jupiter" data-sub="Exclusive North County">
-      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=85&fit=crop" alt="Jupiter" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Jupiter</div>
-        <div class="market-sub">Exclusive North County</div>
-      </div>
-    </div>
-
-    <div class="market-card market-card-large stagger-child" data-area="Pre-Construction" data-sub="Exclusive Opportunities">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=85&fit=crop" alt="Pre-Construction Luxury" loading="lazy" />
-      <div class="market-overlay">
-        <div class="market-name">Pre-Construction</div>
-        <div class="market-sub">Exclusive Opportunities</div>
-      </div>
+    <div class="svc-card">
+      <span class="svc-num">06</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+        <path d="M16 3.13a4 4 0 010 7.75"/>
+      </svg>
+      <h3 class="svc-name">Relocation Services</h3>
+      <p class="svc-desc">White-glove relocation support for discerning clients transitioning to South Florida, from property search to seamless settlement.</p>
     </div>
   </div>
 </section>
 
-<!-- ─── PHILOSOPHY ────────────────────────────── -->
-<section class="philosophy-section">
-  <!-- Decorative roses -->
-  <svg class="philosophy-rose" viewBox="0 0 300 300" fill="none">
-    <circle cx="150" cy="120" r="80" stroke="#C4993D" stroke-width="1"/>
-    <path d="M150 40C150 40 110 80 110 120C110 160 150 190 150 190C150 190 190 160 190 120C190 80 150 40 150 40Z" stroke="#C4993D" stroke-width="1" fill="none"/>
-    <path d="M80 120C80 120 120 100 150 120C180 140 190 180 190 180" stroke="#C4993D" stroke-width="1" fill="none"/>
-    <path d="M220 120C220 120 180 100 150 120C120 140 110 180 110 180" stroke="#C4993D" stroke-width="1" fill="none"/>
-    <line x1="150" y1="190" x2="150" y2="260" stroke="#C4993D" stroke-width="1"/>
-    <path d="M125 230C125 230 138 218 150 218C162 218 175 230 175 230" stroke="#C4993D" stroke-width="1" fill="none"/>
-  </svg>
-  <svg class="philosophy-rose-left" viewBox="0 0 300 300" fill="none">
-    <circle cx="150" cy="120" r="80" stroke="#C4993D" stroke-width="1"/>
-    <path d="M150 40C150 40 110 80 110 120C110 160 150 190 150 190C150 190 190 160 190 120C190 80 150 40 150 40Z" stroke="#C4993D" stroke-width="1" fill="none"/>
-    <line x1="150" y1="190" x2="150" y2="260" stroke="#C4993D" stroke-width="1"/>
-  </svg>
-
-  <p class="philosophy-label reveal">The Luxury by Fab Philosophy</p>
-  <div class="philosophy-divider reveal"></div>
-  <p class="philosophy-quote reveal">
-    "When you elevate <em>your energy</em>,<br>you elevate <em>everything</em> you touch."
-  </p>
-  <div class="philosophy-divider reveal"></div>
-  <div class="philosophy-author reveal">Fabiola Acevedo</div>
-  <div class="philosophy-cta reveal">
-    <a href="#contact" class="btn-gold">Begin Your Journey</a>
-    <a href="tel:+19545297337" class="btn-white-outline">Call: (954) 529-7337</a>
-  </div>
-</section>
-
-<!-- ─── CONTACT ───────────────────────────────── -->
-<section class="contact-section" id="contact">
-  <div class="contact-header">
-    <p class="section-eyebrow" style="justify-content:center;">Work With Fabiola</p>
-    <h2 class="section-title reveal" style="text-align:center;">
-      Let's Begin Your <em>Journey</em>
+<!-- MARKETS -->
+<section class="markets" id="markets">
+  <div class="markets-hdr">
+    <div class="s-label rv-fade">Exclusive Markets</div>
+    <h2 class="s-title">
+      <span class="rv-line"><span class="rv-line-inner">Where Luxury</span></span>
+      <span class="rv-line"><span class="rv-line-inner"><em>Calls Home</em></span></span>
     </h2>
-    <p class="section-body reveal" style="text-align:center;margin:16px auto 0;">
-      For private inquiries, consultations, and exclusive opportunities — handled with the utmost discretion and professionalism.
-    </p>
   </div>
-
-  <div class="contact-inner">
-    <!-- Left: Photo + social -->
-    <div class="contact-left reveal-left">
-      <div class="contact-portrait-wrap">
-        <img src="images/fab-portrait.jpeg" alt="Fabiola Acevedo P.A." class="contact-portrait" />
-      </div>
-      <div class="contact-signature">Fabiola</div>
-      <div class="contact-title-label">Real Estate Advisor · P.A.</div>
-      <div class="contact-social">
-        <div class="social-item">
-          <a href="tel:+19545297337" class="social-btn sb-phone" aria-label="Call Fabiola">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          </a>
-          <span class="social-label">Phone</span>
-        </div>
-        <div class="social-item">
-          <a href="mailto:team@kwluxuryandmore.com" class="social-btn sb-email" aria-label="Email Fabiola">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-          <span class="social-label">Email</span>
-        </div>
-        <div class="social-item">
-          <a href="https://wa.me/19545297337" target="_blank" class="social-btn sb-whatsapp" aria-label="WhatsApp Fabiola">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </a>
-          <span class="social-label">WhatsApp</span>
-        </div>
-        <div class="social-item">
-          <a href="https://www.instagram.com/luxurybyfab" target="_blank" class="social-btn sb-ig" aria-label="Instagram @luxurybyfab">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <span class="social-label">Instagram</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: Form -->
-    <div class="contact-form-wrap reveal-right">
-      <div class="form-title">Request a Private <em>Consultation</em></div>
-      <div class="form-sub">All inquiries handled with complete discretion. <span style="color:var(--gold);">* Required</span></div>
-
-      <form id="inquiryForm" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name <span class="req">*</span></label>
-            <input type="text" id="f_first" name="first_name" placeholder="First name" required />
-          </div>
-          <div class="form-group">
-            <label>Last Name <span class="req">*</span></label>
-            <input type="text" id="f_last" name="last_name" placeholder="Last name" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address <span class="req">*</span></label>
-          <input type="email" id="f_email" name="email" placeholder="your@email.com" required />
-        </div>
-        <div class="form-group">
-          <label>Phone / WhatsApp <span class="req">*</span></label>
-          <input type="tel" id="f_phone" name="phone" placeholder="+1 (000) 000-0000" required />
-        </div>
-        <div class="form-group">
-          <label>I'm Interested In <span class="req">*</span></label>
-          <select id="f_interest" name="interest" required>
-            <option value="">Select an option…</option>
-            <option>Buying a Luxury Home</option>
-            <option>Selling My Property</option>
-            <option>Pre-Construction Opportunities</option>
-            <option>Relocating to South Florida</option>
-            <option>Real Estate Investment</option>
-            <option>General Consultation</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea id="f_msg" name="message" placeholder="Tell me about your goals, preferred area, or budget range…"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send My Inquiry</button>
-        <p id="form-status" style="margin-top:12px;font-size:0.78rem;text-align:center;display:none;"></p>
-      </form>
-    </div>
+  <div class="markets-grid">
+    <div class="mkt-card rv-fade"><div class="mkt-roman">I</div><h3 class="mkt-name">Palm Beach Island</h3><span class="mkt-type">Oceanfront · Estates · Penthouses</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">II</div><h3 class="mkt-name">Fort Lauderdale</h3><span class="mkt-type">Waterfront · Las Olas · Harbor Beach</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">III</div><h3 class="mkt-name">Boca Raton</h3><span class="mkt-type">Golf Estates · Gated · Beachfront</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">IV</div><h3 class="mkt-name">Miami Beach</h3><span class="mkt-type">Star Island · South Beach · Mid-Beach</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">V</div><h3 class="mkt-name">Delray Beach</h3><span class="mkt-type">Atlantic Ave · Coastal · Art District</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">VI</div><h3 class="mkt-name">Highland Beach</h3><span class="mkt-type">Private · Exclusive · Oceanfront</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">VII</div><h3 class="mkt-name">Manalapan</h3><span class="mkt-type">Ultra-Luxury · Private Estates</span></div>
+    <div class="mkt-card rv-fade"><div class="mkt-roman">VIII</div><h3 class="mkt-name">Coral Gables</h3><span class="mkt-type">Mediterranean · Historic · Waterfront</span></div>
   </div>
 </section>
 
-<!-- ─── CLOSING ───────────────────────────────── -->
-<section class="closing-section">
-  <div class="closing-inner">
-    <p class="closing-eyebrow reveal">Begin Your South Florida Real Estate Journey</p>
-    <h2 class="closing-title reveal">Your next home deserves<br><em>more than a transaction.</em></h2>
-    <p class="closing-sub reveal">
-      It deserves strategy, elegance, market knowledge, and a trusted advisor who understands luxury, lifestyle, and long-term value.
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="phil-rose">
+    <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 20C72 20 40 44 40 80C40 116 72 140 100 140C128 140 160 116 160 80C160 44 128 20 100 20Z" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 40C80 40 55 58 55 82C55 106 80 124 100 124C120 124 145 106 145 82C145 58 120 40 100 40Z" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 20C90 38 85 58 100 74C115 58 110 38 100 20Z" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 20C72 30 54 52 60 74" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 20C128 30 146 52 140 74" stroke="currentColor" stroke-width="0.5"/>
+      <line x1="100" y1="140" x2="100" y2="220" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 172C80 152 52 158 58 180C70 186 90 178 100 172Z" stroke="currentColor" stroke-width="0.5"/>
+      <path d="M100 190C120 170 148 176 142 198C130 204 110 196 100 190Z" stroke="currentColor" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <p class="phil-quote rv-fade">
+    Real estate is not merely about properties — it is about the lives built within them, the legacies secured, and the moments of arrival that define a family's story.
+  </p>
+  <p class="phil-attr rv-fade">— Fabiola Acevedo P.A. · Palm Beach Island</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="s-label rv-fade">Get In Touch</div>
+    <h2 class="s-title">
+      <span class="rv-line"><span class="rv-line-inner">Begin Your</span></span>
+      <span class="rv-line"><span class="rv-line-inner"><em>Luxury Journey</em></span></span>
+    </h2>
+    <p class="s-body rv-fade">
+      Whether seeking a private estate, a waterfront sanctuary, or a strategic investment — Fabiola is here to guide you.
     </p>
-    <div class="closing-btns reveal">
-      <a href="#contact" class="btn-gold">Book a Private Consultation</a>
-      <a href="https://wa.me/19545297337" target="_blank" class="btn-white-outline">
-        WhatsApp Fabiola
+    <div class="contact-socials">
+      <a href="tel:+19545297337" class="contact-link rv-fade">
+        <div class="contact-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-link-lbl">Phone</div>
+          <div class="contact-link-val">+1 (954) 529-7337</div>
+        </div>
+      </a>
+      <a href="mailto:fab33076@gmail.com" class="contact-link rv-fade">
+        <div class="contact-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-link-lbl">Email</div>
+          <div class="contact-link-val">fab33076@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://wa.me/19545297337" target="_blank" class="contact-link rv-fade">
+        <div class="contact-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-link-lbl">WhatsApp</div>
+          <div class="contact-link-val">+1 (954) 529-7337</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/beethelightllc" target="_blank" class="contact-link rv-fade">
+        <div class="contact-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-link-lbl">Instagram</div>
+          <div class="contact-link-val">@beethelightllc</div>
+        </div>
       </a>
     </div>
   </div>
+
+  <div>
+    <div class="s-label form-section-label rv-fade">Send A Message</div>
+    <form onsubmit="handleForm(event)">
+      <div class="form-row">
+        <div class="fg"><label class="fl">First Name</label><input type="text" class="fi" name="firstName" placeholder="First name" required></div>
+        <div class="fg"><label class="fl">Last Name</label><input type="text" class="fi" name="lastName" placeholder="Last name" required></div>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label class="fl">Email</label><input type="email" class="fi" name="email" placeholder="your@email.com" required></div>
+        <div class="fg"><label class="fl">Phone</label><input type="tel" class="fi" name="phone" placeholder="+1 (___) ___-____"></div>
+      </div>
+      <div class="fg">
+        <label class="fl">I'm Interested In</label>
+        <select class="fsel fi" name="interest">
+          <option value="">Select…</option>
+          <option>Luxury Buying</option>
+          <option>Strategic Selling</option>
+          <option>Investment Strategy</option>
+          <option>Pre-Construction</option>
+          <option>Relocation Services</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Budget Range</label>
+        <select class="fsel fi" name="budget">
+          <option value="">Select…</option>
+          <option>$500K – $1M</option>
+          <option>$1M – $3M</option>
+          <option>$3M – $5M</option>
+          <option>$5M – $10M</option>
+          <option>$10M+</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Message</label>
+        <textarea class="fta" name="message" placeholder="Tell Fabiola about your real estate goals…"></textarea>
+      </div>
+      <button type="submit" class="fsub">Send Message →</button>
+    </form>
+  </div>
 </section>
 
-<!-- ─── FOOTER ────────────────────────────────── -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
+  <div class="ft-top">
     <div>
-      <div class="footer-brand-name">Luxury by Fab</div>
-      <div class="footer-brand-sub">Fabiola Acevedo P.A.</div>
-      <p class="footer-tagline">Luxury Real Estate with Heart.<br>Discreet · Dedicated · Exceptional Results.</p>
+      <div class="ft-brand">Fabiana</div>
+      <div class="ft-brand-sub">Fabiola Acevedo P.A. · Keller Williams Luxury · Palm Beach</div>
     </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <ul class="footer-links">
-        <li><a href="#about">Meet Fabiola</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#markets">Markets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8"/></svg>
-        <a href="tel:+19545297337">(954) 529-7337</a>
-      </div>
-      <div class="footer-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:team@kwluxuryandmore.com">team@kwluxuryandmore.com</a>
-      </div>
-      <div class="footer-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>
-        <a href="https://www.instagram.com/luxurybyfab" target="_blank">@luxurybyfab</a>
-      </div>
+    <nav class="ft-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#markets">Markets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="ft-kw-text">
+      KW Luxury · Palm Beach<br>
+      Licensed Real Estate Advisor<br>
+      South Florida · fabiolaacevedo.com
     </div>
   </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">&copy; 2025 Fabiola Acevedo P.A. · Luxury by Fab · All rights reserved.</span>
-    <span class="footer-kw">KW Luxury · Keller Williams Realty · Palm Beach</span>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 Fabiola Acevedo P.A. — All Rights Reserved</div>
+    <div class="ft-copy">Discreet · Dedicated · Exceptional Results</div>
   </div>
+  <div class="ft-strip"></div>
 </footer>
 
-<!-- ─── LIGHTBOX ──────────────────────────────── -->
-<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <img id="lb-img" src="" alt="" />
-  <div class="lightbox-info">
-    <div class="lightbox-name" id="lb-name"></div>
-    <div class="lightbox-sub-text" id="lb-sub"></div>
-    <button class="lightbox-cta" onclick="closeLightbox();scrollToContact()">Request a Private Consultation</button>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════ -->
+<!-- GSAP + ScrollTrigger + Lenis -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
-/* ─── PRELOADER ─── */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('preloader').classList.add('hidden');
-    document.body.classList.add('loaded');
-    initScrollEffects();
-  }, 1200);
-});
-requestAnimationFrame(() => {
-  if (document.readyState === 'complete') {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.add('hidden');
-      document.body.classList.add('loaded');
-      initScrollEffects();
-    }, 1200);
-  }
-});
+gsap.registerPlugin(ScrollTrigger);
 
-/* ─── NAV ─── */
-const nav = document.getElementById('mainNav');
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// ── LENIS SMOOTH SCROLL ──
+try {
+  var lenis = new Lenis({ duration: 1.2, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); } });
+  function rafLenis(time) { lenis.raf(time); requestAnimationFrame(rafLenis); }
+  requestAnimationFrame(rafLenis);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+} catch(e) {}
 
-function updateNav() {
-  const y = window.scrollY;
-  const hero = document.querySelector('.hero');
-  const heroH = hero ? hero.offsetHeight : window.innerHeight;
-  if (y > 50) {
-    nav.classList.add('scrolled');
-    nav.classList.remove('hero-zone');
-  } else {
-    nav.classList.remove('scrolled');
-    nav.classList.add('hero-zone');
-  }
-  const progress = document.getElementById('scrollProgress');
-  const total = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = (total > 0 ? (y / total) * 100 : 0) + '%';
+// ── PRELOADER ──
+var plBrand = document.querySelector('.pl-brand');
+var plLine  = document.getElementById('plLine');
+
+gsap.timeline()
+  .to(plBrand, { opacity: 1, duration: 0.7, delay: 0.3, ease: 'power2.out' })
+  .to(plLine,  { width: '200px', duration: 1.2, ease: 'expo.out' }, '-=0.2')
+  .to('#preloader', {
+    opacity: 0, duration: 0.7, delay: 0.5, ease: 'power2.in',
+    onComplete: function() {
+      document.getElementById('preloader').style.display = 'none';
+      heroIn();
+    }
+  });
+
+// ── HERO ENTRANCE ──
+function heroIn() {
+  gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .fromTo('.hero-eyebrow',  { opacity:0, y:18, visibility:'visible' }, { opacity:1, y:0, duration:1 })
+    .fromTo('#heroDivider',   { opacity:0, scaleX:0, visibility:'visible' }, { opacity:1, scaleX:1, duration:0.8 }, '-=0.6')
+    .fromTo('.hero-luxury',   { opacity:0, y:64, visibility:'visible' }, { opacity:1, y:0, duration:1.3 }, '-=0.4')
+    .fromTo('.hero-by',       { opacity:0, y:44, visibility:'visible' }, { opacity:1, y:0, duration:1.2 }, '-=1.0')
+    .fromTo('.hero-limited',  { opacity:0, visibility:'visible' }, { opacity:1, duration:0.8 }, '-=0.7')
+    .fromTo('.hero-tagline',  { opacity:0, visibility:'visible' }, { opacity:1, duration:0.8 }, '-=0.6')
+    .fromTo('.hero-ctas',     { opacity:0, y:20, visibility:'visible' }, { opacity:1, y:0, duration:0.8 }, '-=0.5')
+    .fromTo('.hero-scroll',   { opacity:0, visibility:'visible' }, { opacity:1, duration:0.8 }, '-=0.4');
+
+  gsap.from('#heroImg', { scale:1.08, duration:2.8, ease:'power3.out', delay:0.4 });
 }
-window.addEventListener('scroll', updateNav, { passive: true });
-window.addEventListener('resize', updateNav, { passive: true });
-updateNav();
 
-/* ─── MOBILE NAV ─── */
-const burger = document.getElementById('navBurger');
-const mobileNav = document.getElementById('mobileNav');
-burger.addEventListener('click', () => mobileNav.classList.add('open'));
-document.getElementById('mobileNavClose').addEventListener('click', closeMobileNav);
-function closeMobileNav() { mobileNav.classList.remove('open'); }
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
 
-/* ─── SMOOTH ANCHOR SCROLL ─── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').split('?')[0];
-    if (id === '#') return;
-    const target = document.querySelector(id);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-      closeMobileNav();
+// ── ABOUT PHOTO: clip reveal ──
+gsap.fromTo('.about-photo',
+  { clipPath: 'inset(100% 0 0 0)' },
+  { clipPath: 'inset(0% 0 0% 0)', duration: 1.5, ease: 'expo.out',
+    scrollTrigger: { trigger: '.about-photo-wrap', start: 'top 85%' } }
+);
+
+// ── ABOUT PHOTO: parallax ──
+gsap.to('.about-photo', {
+  y: -55, ease: 'none',
+  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: true }
+});
+
+// ── STAT COUNTERS ──
+document.querySelectorAll('.stat-num').forEach(function(el) {
+  var target = parseInt(el.dataset.target);
+  var suffix = el.dataset.suffix || '';
+  ScrollTrigger.create({
+    trigger: el, start: 'top 88%',
+    onEnter: function() {
+      var obj = { v: 0 };
+      gsap.to(obj, { v: target, duration: 2.2, ease: 'power2.out',
+        onUpdate: function() { el.textContent = Math.round(obj.v) + suffix; }
+      });
     }
   });
 });
-function scrollToContact() {
-  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
 
-/* ─── INTERSECTION OBSERVER ─── */
-function initScrollEffects() {
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll(
-    '.reveal, .reveal-left, .reveal-right, .reveal-clip'
-  ).forEach(el => revealObs.observe(el));
-
-  /* Staggered children */
-  const staggerObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.stagger-child'));
-        const i = siblings.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      } else {
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.stagger-child').forEach(el => staggerObs.observe(el));
-
-  /* Counter animation */
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting || entry.target.dataset.counted) return;
-      entry.target.dataset.counted = '1';
-      const target = parseInt(entry.target.dataset.target, 10);
-      const suffix = entry.target.dataset.suffix || '';
-      if (isNaN(target)) return;
-      if (prefersReduced) { entry.target.textContent = target + suffix; return; }
-      const dur = 1600;
-      const start = performance.now();
-      entry.target.textContent = '0' + suffix;
-      (function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        entry.target.textContent = Math.round(target * eased) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      })(start);
-      counterObs.unobserve(entry.target);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObs.observe(el));
-}
-
-/* ─── PARALLAX ─── */
-const aboutBg = document.getElementById('aboutBg');
-function onScrollParallax() {
-  if (!aboutBg || prefersReduced) return;
-  const parent = aboutBg.parentElement;
-  const rect = parent.getBoundingClientRect();
-  const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-  if (!inView) return;
-  const progress = -rect.top / window.innerHeight;
-  aboutBg.style.transform = `translateY(${progress * 70}px) scale(1.1)`;
-}
-window.addEventListener('scroll', onScrollParallax, { passive: true });
-
-/* ─── LIGHTBOX ─── */
-document.querySelectorAll('.market-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const img = card.querySelector('img');
-    const name = card.dataset.area;
-    const sub = card.dataset.sub;
-    document.getElementById('lb-img').src = img.src;
-    document.getElementById('lb-name').textContent = name;
-    document.getElementById('lb-sub').textContent = sub;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
+// ── FADE REVEALS ──
+gsap.utils.toArray('.rv-fade').forEach(function(el) {
+  gsap.fromTo(el, { opacity: 0, y: 38 }, {
+    opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' }
   });
 });
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeLightboxOutside(e) {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
-}
-window.closeLightbox = closeLightbox;
 
-/* ─── FORM ─── */
-function handleSubmit(e) {
+// ── LINE REVEALS ──
+gsap.utils.toArray('.rv-line-inner').forEach(function(el, i) {
+  gsap.fromTo(el, { y: '105%' }, {
+    y: '0%', duration: 1.1, ease: 'expo.out',
+    delay: (i % 3) * 0.07,
+    scrollTrigger: { trigger: el.closest('.s-title'), start: 'top 88%', toggleActions: 'play none none reverse' }
+  });
+});
+
+// ── SERVICE CARDS ──
+gsap.fromTo('.svc-card',
+  { opacity: 0, y: 56 },
+  { opacity: 1, y: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out',
+    scrollTrigger: { trigger: '.services-grid', start: 'top 85%' } }
+);
+
+// ── MARKET CARDS ──
+gsap.fromTo('.mkt-card',
+  { opacity: 0, y: 38 },
+  { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: 'power3.out',
+    scrollTrigger: { trigger: '.markets-grid', start: 'top 85%' } }
+);
+
+// ── HERO PARALLAX ──
+gsap.to('.hero-left', {
+  y: -70, ease: 'none',
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+});
+
+// ── FORM ──
+function handleForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  const status = document.getElementById('form-status');
-
-  const first    = document.getElementById('f_first').value.trim();
-  const last     = document.getElementById('f_last').value.trim();
-  const email    = document.getElementById('f_email').value.trim();
-  const phone    = document.getElementById('f_phone').value.trim();
-  const interest = document.getElementById('f_interest').value;
-  const msg      = document.getElementById('f_msg').value.trim();
-  const name     = first + ' ' + last;
-
-  const subject = encodeURIComponent('New Inquiry — ' + interest);
-  const body    = encodeURIComponent(
-    'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone +
-    '\nInterest: ' + interest + (msg ? '\nMessage: ' + msg : '')
-  );
-  const waMsg = encodeURIComponent(
-    'Hello Fabiola,\n\nMy name is ' + name + ' and I am interested in: ' + interest +
-    '.\n\nEmail: ' + email + '\nPhone: ' + phone +
-    (msg ? '\n\nMessage: ' + msg : '') +
-    '\n\nLooking forward to connecting!'
-  );
-
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  window.location.href = 'mailto:team@kwluxuryandmore.com?subject=' + subject + '&body=' + body;
-  setTimeout(() => {
-    window.open('https://wa.me/19545297337?text=' + waMsg, '_blank');
-    btn.textContent = 'Inquiry Sent ✓';
-    btn.style.background = '#2e7d32';
-    status.textContent = '✓ Your inquiry is on its way. Fabiola will be in touch shortly.';
-    status.style.color = '#2e7d32';
-    status.style.display = 'block';
-    e.target.reset();
-    setTimeout(() => {
-      btn.textContent = 'Send My Inquiry';
-      btn.style.background = '';
-      btn.disabled = false;
-      status.style.display = 'none';
-    }, 6000);
-  }, 800);
+  var d = new FormData(e.target);
+  var subj = encodeURIComponent('Luxury Inquiry — ' + d.get('firstName') + ' ' + d.get('lastName'));
+  var body = encodeURIComponent('Name: ' + d.get('firstName') + ' ' + d.get('lastName') + '\nEmail: ' + d.get('email') + '\nPhone: ' + d.get('phone') + '\nInterest: ' + d.get('interest') + '\nBudget: ' + d.get('budget') + '\nMessage: ' + d.get('message'));
+  window.open('mailto:fab33076@gmail.com?subject=' + subj + '&body=' + body, '_blank');
+  window.open('https://wa.me/19545297337?text=Hello%20Fabiola%2C%20I%20am%20' + encodeURIComponent(d.get('firstName')) + '%20and%20interested%20in%20' + encodeURIComponent(d.get('interest') || 'your services') + '.', '_blank');
+  e.target.reset();
 }
 </script>
 </body>
