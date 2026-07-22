@@ -238,6 +238,33 @@
       border: 1px solid var(--teal-pale); color: var(--teal-dk);
     }
 
+    /* ─── CREED ─── */
+    .creed {
+      padding: 130px 56px; text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(215,236,235,0.6) 0%, transparent 55%),
+        var(--teal-wash);
+      position: relative; overflow: hidden;
+    }
+    .creed-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+    .creed-icon {
+      width: 60px; height: 60px; margin: 0 auto 30px; border-radius: 50%;
+      background: var(--white); color: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 14px 34px -16px rgba(14,124,123,0.6);
+    }
+    .creed-icon svg { width: 30px; height: 30px; }
+    .creed-quote {
+      font-family: var(--font-s); font-size: clamp(1.6rem, 3.1vw, 2.6rem);
+      font-weight: 400; font-style: italic; line-height: 1.5; color: var(--ink);
+      margin: 8px auto 28px; position: relative;
+    }
+    .creed-attr {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--teal-dk); font-weight: 500;
+    }
+    .creed-attr em { font-style: italic; text-transform: none; letter-spacing: 0.02em; font-family: var(--font-s); font-size: 1.05rem; color: var(--teal); }
+
     /* ─── VALUES ─── */
     .values { padding: 120px 56px; background: var(--white); text-align: center; }
     .values-hdr { max-width: 620px; margin: 0 auto 60px; }
@@ -350,6 +377,7 @@
   <ul class="nav-links">
     <li><a href="#mission">Mission</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#leadership">Leadership</a></li>
     <li><a href="#values">Values</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -452,6 +480,20 @@
       <span class="about-tag rv-fade">Humanitarian</span>
       <span class="about-tag rv-fade">Survivor Advocate</span>
     </div>
+  </div>
+</section>
+
+<!-- SACRED STANDARD -->
+<section class="creed" id="leadership">
+  <div class="creed-inner">
+    <div class="creed-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-4.35-9.5-8.5C1 10 2 6 6 6c2.2 0 3.8 1.5 4.5 2.8C11.2 7.5 12.8 6 15 6c4 0 5 4 3.5 6.5C16 16.65 12 21 12 21z"/><line x1="12" y1="2" x2="12" y2="6"/></svg>
+    </div>
+    <div class="s-label rv-fade" style="justify-content:center">The Sacred Standard of Leadership</div>
+    <p class="creed-quote rv-fade">
+      To lead with the heart is to walk the highest path. It is the timeless courage to heal where there is pain, to serve where there is need, and to guide humanity back to love, grace, and eternal purpose.
+    </p>
+    <p class="creed-attr rv-fade">— Fabiola Acevedo · Founder, <em>Heart as a Compass</em></p>
   </div>
 </section>
 
