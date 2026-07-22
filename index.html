@@ -185,8 +185,10 @@
     .insider-title { font-family: var(--font-s); font-size: clamp(2.2rem,4.4vw,3.6rem); font-weight: 300; color: var(--alabaster); margin-bottom: 20px; }
     .insider-title em { font-style: italic; color: var(--gold-lt); }
     .insider-body { font-size: 0.98rem; color: rgba(252,250,245,0.72); line-height: 1.85; margin-bottom: 40px; }
-    .insider-form { display: flex; gap: 12px; margin-bottom: 26px; }
-    .insider-input { flex: 1; padding: 16px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(214,190,148,0.3); color: var(--alabaster); font-family: var(--font-b); font-size: 0.92rem; outline: none; transition: border-color 0.3s; }
+    .insider-form { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+    .insider-input { flex: 1 1 200px; padding: 16px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(214,190,148,0.3); color: var(--alabaster); font-family: var(--font-b); font-size: 0.92rem; outline: none; transition: border-color 0.3s; }
+    .mc-hp { position: absolute; left: -5000px; }
+    .insider-msg { min-height: 1.2em; margin-bottom: 18px; font-size: 0.82rem; letter-spacing: 0.04em; color: var(--gold-lt); }
     .insider-input::placeholder { color: rgba(252,250,245,0.4); }
     .insider-input:focus { border-color: var(--gold); }
     .insider-submit { padding: 16px 32px; background: var(--gold); color: var(--charcoal); font-family: var(--font-b); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
@@ -304,7 +306,7 @@
     <li><a href="#foundation">Foundation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#insider" class="nav-cta">Become an Insider</a>
+  <a href="#insider" class="nav-cta">Register</a>
 </nav>
 
 <!-- HERO -->
@@ -413,11 +415,16 @@
     <p class="insider-body rv-fade">
       Subscribe to receive exclusive insights, high-level mentoring opportunities, and updates on our global initiatives.
     </p>
-    <form class="insider-form rv-fade" onsubmit="handleInsider(event)">
-      <input type="email" class="insider-input" name="email" placeholder="Your email address" required>
-      <button type="submit" class="insider-submit">Become an Insider</button>
+    <form id="mcForm" class="insider-form rv-fade"
+          action="https://MC_DC.list-manage.com/subscribe/post?u=MC_U&amp;id=MC_ID"
+          method="post" target="_blank" novalidate onsubmit="return handleRegister(event)">
+      <input type="text" class="insider-input" name="FNAME" placeholder="First name" required>
+      <input type="email" class="insider-input" name="EMAIL" placeholder="Email address" required>
+      <button type="submit" class="insider-submit">Register</button>
+      <div class="mc-hp" aria-hidden="true"><input type="text" name="b_MC_U_MC_ID" tabindex="-1" value=""></div>
     </form>
-    <span class="insider-alt rv-fade">Already part of the circle? <a href="#contact">Sign in / Register</a></span>
+    <p class="insider-msg" id="mcMsg"></p>
+    <span class="insider-alt rv-fade">Become a member &amp; join our email list — no spam, unsubscribe anytime.</span>
   </div>
 </section>
 
@@ -605,13 +612,24 @@ function handleForm(e) {
   window.open('mailto:fab33076@gmail.com?subject=' + subj + '&body=' + body, '_blank');
   e.target.reset();
 }
-function handleInsider(e) {
+function handleRegister(e) {
+  var f = e.target;
+  var msg = document.getElementById('mcMsg');
+  var configured = f.action.indexOf('list-manage.com') > -1 && f.action.indexOf('MC_U') === -1;
+  if (configured) {
+    // Mailchimp is set up → let the native POST proceed (opens confirmation in new tab)
+    msg.textContent = 'Opening secure signup…';
+    return true;
+  }
+  // Not configured yet → fall back to emailing the registration so nothing is lost
   e.preventDefault();
-  var email = new FormData(e.target).get('email');
-  var subj = encodeURIComponent('Become an Insider — Heart as a Compass');
-  var body = encodeURIComponent('Please add me as an Insider.\nEmail: ' + email);
+  var d = new FormData(f);
+  var subj = encodeURIComponent('New Member Registration — Heart as a Compass');
+  var body = encodeURIComponent('Name: ' + d.get('FNAME') + '\nEmail: ' + d.get('EMAIL'));
   window.open('mailto:fab33076@gmail.com?subject=' + subj + '&body=' + body, '_blank');
-  e.target.reset();
+  msg.textContent = 'Thank you — your registration was sent.';
+  f.reset();
+  return false;
 }
 </script>
 </body>
