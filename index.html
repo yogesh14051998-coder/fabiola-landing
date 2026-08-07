@@ -143,16 +143,16 @@
     .note-sign { font-family: var(--font-s); font-style: italic; font-size: 1.9rem; color: var(--gold-dk); margin-top: 28px; }
 
     /* ─── MANIFESTO ─── */
-    .manifesto { padding: 120px 60px; background: var(--espresso); color: var(--alabaster); text-align: center; position: relative; }
-    .manifesto .s-label { color: var(--gold-lt); }
-    .manifesto .s-label::before, .manifesto .s-label::after { background: rgba(214,190,148,0.5); }
-    .manifesto-lead { font-family: var(--font-s); font-size: clamp(1.7rem,3.2vw,2.7rem); font-weight: 300; line-height: 1.5; max-width: 900px; margin: 0 auto 60px; color: var(--alabaster); }
-    .manifesto-lead em { font-style: italic; color: var(--gold-lt); }
-    .manifesto-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; max-width: 1040px; margin: 0 auto; }
-    .man-card { padding: 48px 34px; background: rgba(255,255,255,0.03); border: 1px solid rgba(214,190,148,0.14); transition: background 0.4s; }
-    .man-card:hover { background: rgba(214,190,148,0.08); }
-    .man-num { font-family: var(--font-s); font-size: 2.2rem; color: var(--gold); display: block; margin-bottom: 18px; font-weight: 400; }
-    .man-text { font-family: var(--font-s); font-size: 1.5rem; font-weight: 400; line-height: 1.3; color: var(--alabaster); }
+    .manifesto { padding: 120px 60px; background: linear-gradient(170deg, var(--cream) 0%, var(--cream-2) 100%); color: var(--espresso); text-align: center; position: relative; }
+    .manifesto .s-label { color: var(--gold-dk); }
+    .manifesto .s-label::before, .manifesto .s-label::after { background: var(--gold-lt); }
+    .manifesto-lead { font-family: var(--font-s); font-size: clamp(1.7rem,3.2vw,2.7rem); font-weight: 300; line-height: 1.5; max-width: 900px; margin: 0 auto 60px; color: var(--espresso); }
+    .manifesto-lead em { font-style: italic; color: var(--gold-dk); }
+    .manifesto-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1040px; margin: 0 auto; }
+    .man-card { padding: 48px 34px; background: var(--alabaster); border: 1px solid var(--gold-pale); transition: background 0.4s, transform 0.4s, box-shadow 0.4s; }
+    .man-card:hover { background: var(--white); transform: translateY(-4px); box-shadow: 0 22px 44px -30px rgba(59,46,36,0.35); }
+    .man-num { font-family: var(--font-s); font-size: 2.4rem; color: var(--gold); display: block; margin-bottom: 18px; font-weight: 400; }
+    .man-text { font-family: var(--font-s); font-size: 1.5rem; font-weight: 400; line-height: 1.3; color: var(--espresso); }
 
     /* ─── PILLARS (3-STEP) ─── */
     .steps { padding: 130px 60px; background: var(--cream); }
@@ -249,6 +249,41 @@
     .ft-links a:hover { color: var(--gold-lt); }
     .ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
     .ft-copy { font-size: 0.62rem; color: rgba(252,250,245,0.35); letter-spacing: 0.08em; }
+
+    /* ─── REGISTER POPUP ─── */
+    .reg-pop {
+      position: fixed; bottom: 28px; right: 28px; z-index: 1200;
+      width: 360px; max-width: calc(100vw - 40px);
+      background: var(--alabaster); border: 1px solid var(--gold-pale);
+      box-shadow: 0 30px 70px -30px rgba(30,25,21,0.5);
+      padding: 32px 30px 30px; border-top: 3px solid var(--gold);
+      transform: translateX(130%); opacity: 0; visibility: hidden;
+      transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), opacity 0.5s ease, visibility 0.7s;
+    }
+    .reg-pop.show { transform: translateX(0); opacity: 1; visibility: visible; }
+    .reg-pop-close {
+      position: absolute; top: 12px; right: 14px; width: 28px; height: 28px;
+      background: transparent; border: none; cursor: pointer;
+      font-size: 1.4rem; line-height: 1; color: var(--text-mid); transition: color 0.3s;
+    }
+    .reg-pop-close:hover { color: var(--espresso); }
+    .reg-pop-eyebrow { font-size: 0.56rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: 12px; }
+    .reg-pop-title { font-family: var(--font-s); font-size: 1.9rem; font-weight: 400; color: var(--espresso); line-height: 1.1; margin-bottom: 10px; }
+    .reg-pop-title em { font-style: italic; color: var(--gold-dk); }
+    .reg-pop-body { font-size: 0.84rem; line-height: 1.65; color: var(--text-mid); margin-bottom: 20px; }
+    .reg-pop-form { display: flex; flex-direction: column; gap: 10px; }
+    .reg-pop-form input { padding: 12px 14px; background: var(--white); border: 1px solid var(--gold-pale); font-family: var(--font-b); font-size: 0.86rem; color: var(--text); outline: none; transition: border-color 0.3s; }
+    .reg-pop-form input:focus { border-color: var(--gold); }
+    .reg-pop-form button {
+      margin-top: 4px; padding: 13px; background: var(--espresso); color: var(--gold-lt);
+      font-family: var(--font-b); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .reg-pop-form button:hover { background: var(--gold); color: var(--white); }
+    .reg-pop-msg { min-height: 1em; margin-top: 10px; font-size: 0.76rem; color: var(--gold-dk); }
+    @media (max-width: 520px) {
+      .reg-pop { right: 12px; left: 12px; bottom: 12px; width: auto; padding: 26px 22px 24px; }
+    }
 
     /* ─── ANIM ─── */
     .js .rv-fade { opacity: 0; transform: translateY(30px); }
@@ -415,7 +450,7 @@
     <p class="insider-body rv-fade">
       Subscribe to receive exclusive insights, high-level mentoring opportunities, and updates on our global initiatives.
     </p>
-    <form id="mcForm" class="insider-form rv-fade"
+    <form id="mcForm" class="insider-form rv-fade" data-msg="mcMsg"
           action="https://MC_DC.list-manage.com/subscribe/post?u=MC_U&amp;id=MC_ID"
           method="post" target="_blank" novalidate onsubmit="return handleRegister(event)">
       <input type="text" class="insider-input" name="FNAME" placeholder="First name" required>
@@ -524,6 +559,24 @@
   </div>
 </section>
 
+<!-- REGISTER POPUP -->
+<div class="reg-pop" id="regPop" role="dialog" aria-label="Become an Insider">
+  <button class="reg-pop-close" id="regPopClose" aria-label="Close">&times;</button>
+  <div class="reg-pop-eyebrow">Join the Movement</div>
+  <h4 class="reg-pop-title">Become an <em>Insider</em></h4>
+  <p class="reg-pop-body">Enter your details for exclusive insights, mentoring opportunities, and updates.</p>
+  <form class="reg-pop-form" data-msg="popMsg"
+        action="https://MC_DC.list-manage.com/subscribe/post?u=MC_U&amp;id=MC_ID"
+        method="post" target="_blank" novalidate onsubmit="return handleRegister(event)">
+    <input type="text" name="FNAME" placeholder="First name" required>
+    <input type="email" name="EMAIL" placeholder="Email address" required>
+    <input type="tel" name="PHONE" placeholder="Phone (optional)">
+    <div class="mc-hp" aria-hidden="true"><input type="text" name="b_MC_U_MC_ID" tabindex="-1" value=""></div>
+    <button type="submit">Register</button>
+  </form>
+  <p class="reg-pop-msg" id="popMsg"></p>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="ft-top">
@@ -603,6 +656,27 @@ if (HAS_GSAP) {
   }, { passive: true });
 }
 
+// ── REGISTER POPUP: gentle slide-in, once per session ──
+(function () {
+  var pop = document.getElementById('regPop');
+  if (!pop) return;
+  var shown = false;
+  function show() {
+    if (shown || sessionStorage.getItem('regPopSeen')) return;
+    shown = true;
+    pop.classList.add('show');
+  }
+  function hide() { pop.classList.remove('show'); sessionStorage.setItem('regPopSeen', '1'); }
+  var timer = setTimeout(show, 12000);
+  window.addEventListener('scroll', function () {
+    var p = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (p > 0.45) { clearTimeout(timer); show(); }
+  }, { passive: true });
+  document.getElementById('regPopClose').addEventListener('click', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  pop.querySelector('form').addEventListener('submit', function () { setTimeout(hide, 400); });
+})();
+
 // ── FORMS (always global) ──
 function handleForm(e) {
   e.preventDefault();
@@ -614,7 +688,7 @@ function handleForm(e) {
 }
 function handleRegister(e) {
   var f = e.target;
-  var msg = document.getElementById('mcMsg');
+  var msg = document.getElementById(f.dataset.msg || 'mcMsg') || document.getElementById('mcMsg');
   var configured = f.action.indexOf('list-manage.com') > -1 && f.action.indexOf('MC_U') === -1;
   if (configured) {
     // Mailchimp is set up → let the native POST proceed (opens confirmation in new tab)
